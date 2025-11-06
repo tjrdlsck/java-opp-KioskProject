@@ -1,0 +1,8 @@
+STORE|Twosome|프리미엄 디저트 카페
+CATEGORY|커피
+PRODUCT|아메리카노(블랙그라운드)|4500|
+PRODUCT|아메리카노(아로마노트)|4500|
+PRODUCT|스페니쉬 연유 라떼|6000|
+CATEGORY|케이크
+PRODUCT|스트로베리 초콜릿 생크림|6500|
+PRODUCT|떠먹는 아이스박스|6500|images/starbucks/latte.png

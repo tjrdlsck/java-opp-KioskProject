@@ -1,4 +1,4 @@
-package mainpage;
+package mainpage.model;
 
 // java.util.Objects 클래스:
 // 객체의 null 검사, 해시코드 생성, 'equals' 비교 등을

@@ -53,7 +53,7 @@ PRODUCT|페퍼민트|2700|
 PRODUCT|잉글리쉬블랙퍼스트|2700|
 PRODUCT|얼그레이|2700|
 PRODUCT|다즐링|2700|
-PRODUCT|피치 아이스티|2800|
+PRODUCT|피치 아이스티|2800|image/cafe2th/icetea.jpeg
 PRODUCT|유자차|3300|
 PRODUCT|자몽차|3300|
 PRODUCT|레몬차|3300|

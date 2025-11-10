@@ -1,4 +1,4 @@
-package mainpage;
+package mainpage.model;
 
 import java.util.ArrayList;
 import java.util.List;

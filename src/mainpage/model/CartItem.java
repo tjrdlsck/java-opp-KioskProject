@@ -1,4 +1,4 @@
-package mainpage;
+package mainpage.model;
 
 // 이 클래스는 특정 '상품(Product)'과 해당 상품의 '수량(quantity)'을 하나의 단위로 묶어 관리함
 public class CartItem {

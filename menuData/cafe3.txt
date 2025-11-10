@@ -1,4 +1,4 @@
-STORE|Store2|2강 카페
+STORE|Store3|3강 카페
 CATEGORY|SIGNATURE
 PRODUCT|딸기 판나코타|3400|
 PRODUCT|사과 판나코타|3400|

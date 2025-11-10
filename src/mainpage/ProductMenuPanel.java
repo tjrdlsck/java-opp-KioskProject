@@ -5,25 +5,22 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.BorderFactory;
-import java.awt.BorderLayout;
-import java.awt.Dimension; // [신규] Dimension 클래스 import
-import java.awt.FlowLayout; 
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.util.List;
-import java.awt.Color;
-import javax.swing.BorderFactory;
+import javax.swing.JOptionPane; // [3단계 신규] 팝업창을 위해 import
+import javax.swing.UIManager;   // (2단계에서 추가됨)
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.UIManager;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.util.List;
 
 /**
- * [View - Panel 3 (버튼 크기 수정)]
- * 1. 페이지네이션 기능
- * 2. 스트레칭 방지 래퍼
- * 3. [수정] setPreferredSize로 버튼 크기 고정
+ * [View - Panel 3 (3단계 수정)]
+ * 1. handleProductClick 메소드에 JOptionPane 확인/알림 로직 구현
  */
 public class ProductMenuPanel extends JPanel {
 
@@ -32,7 +29,7 @@ public class ProductMenuPanel extends JPanel {
     private JPanel productButtonPanel;
     private JButton backButton;
     
-    private Store currentStore; 
+    private Store currentStore;
 
     // --- 페이지네이션 상태 변수 ---
     private List<Product> allProducts;
@@ -62,7 +59,7 @@ public class ProductMenuPanel extends JPanel {
         add(titleLabel, BorderLayout.NORTH);
 
         // 2. 중앙: 상품 버튼 패널 (3x3 고정)
-        productButtonPanel = new JPanel(new GridLayout(ROWS_PER_PAGE, COLS_PER_PAGE, 1, 1));
+        productButtonPanel = new JPanel(new GridLayout(ROWS_PER_PAGE, COLS_PER_PAGE, 10, 10));
         add(productButtonPanel, BorderLayout.CENTER);
 
         
@@ -116,7 +113,7 @@ public class ProductMenuPanel extends JPanel {
     }
     
     /**
-     * [setMenu 메소드]
+     * [setMenu 메소드] (변경 없음)
      */
     public void setMenu(Menu menu, Store store) {
         if (menu == null || store == null) return;
@@ -137,33 +134,22 @@ public class ProductMenuPanel extends JPanel {
     }
     
     /**
-     * [updateProductView 메소드 수정본 - 버튼 효과 복원]
-     * 'currentPage' 상태를 기반으로 갱신.
-     * 1. [수정] LineBorder 대신 UIManager의 기본 테두리(효과 포함)를 사용
-     * 2. [신규] 배경색(흰색) 및 setFocusPainted(false) 적용
+     * [updateProductView 메소드] (변경 없음)
      */
     private void updateProductView() {
-        // 1. [중요] 기존 버튼들 모두 삭제
         productButtonPanel.removeAll();
 
-        // 2. 현재 페이지에 표시할 상품의 시작/끝 인덱스 계산
         int startIndex = currentPage * PRODUCTS_PER_PAGE;
         int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, allProducts.size());
 
-        // [신규] 버튼에 적용할 '복합 테두리' 생성
-        // 1. 시스템의 '기본 테두리' (눌림/호버 효과 포함)
+        // 버튼 스타일 (2단계 수정본)
         Border defaultBorder = UIManager.getBorder("Button.border");
-        // 2. 내부 여백 (Padding) 생성 (상하 10px, 좌우 10px)
         Border padding = new EmptyBorder(10, 10, 10, 10);
-        // 3. 외곽선(기본 효과)과 내부 여백을 합침
         Border compoundBorder = new CompoundBorder(defaultBorder, padding);
 
-
-        // 3. 현재 페이지의 상품만 '잘라서' 버튼 생성
         for (int i = startIndex; i < endIndex; i++) {
             Product product = allProducts.get(i);
             
-            // HTML 텍스트로 2줄 표시
             String buttonText = String.format("<html><center>%s<br/>(%,d원)</center></html>",
                                               product.getName(),
                                               product.getPrice());
@@ -171,33 +157,28 @@ public class ProductMenuPanel extends JPanel {
             JButton productButton = new JButton(buttonText);
             productButton.setFont(new Font("SansSerif", Font.BOLD, 16));
 
-            // --- [신규] 스타일 적용 ---
-            productButton.setBackground(Color.WHITE); // 배경색 흰색
-            productButton.setOpaque(true);            // 배경색 보이도록
-            productButton.setFocusPainted(false);     // 클릭 시 점선 테두리 제거
-            // ------------------------
-            
-            // [수정] LineBorder가 아닌 '효과가 포함된' 복합 테두리 적용
+            // 스타일 적용 (2단계 수정본)
+            productButton.setBackground(Color.WHITE);
+            productButton.setOpaque(true);
+            productButton.setFocusPainted(false);
             productButton.setBorder(compoundBorder);
             
-            // 리스너 연결
             productButton.addActionListener(e -> {
-                handleProductClick(product);
+                handleProductClick(product); // [수정] 이 메소드 내부 로직 변경
             });
             
-            // [수정] 버튼을 GridLayout에 직접 추가
             productButtonPanel.add(productButton);
         }
 
-        // 4. [중요] 그리드(3x3)의 빈 슬롯 채우기
+        // 빈 슬롯 채우기 (2단계 수정본)
         int emptySlots = PRODUCTS_PER_PAGE - (endIndex - startIndex);
         for (int i = 0; i < emptySlots; i++) {
             JPanel emptyPanel = new JPanel();
-            emptyPanel.setOpaque(false); // 투명하게
+            emptyPanel.setOpaque(false);
             productButtonPanel.add(emptyPanel);
         }
 
-        // 5. 페이지네이션 UI 갱신
+        // 페이지네이션 UI 갱신 (2단계 수정본)
         pageLabel.setText(String.format("%d / %d", currentPage + 1, totalPages));
         prevButton.setEnabled(currentPage > 0); 
         nextButton.setEnabled(currentPage < totalPages - 1);
@@ -207,15 +188,44 @@ public class ProductMenuPanel extends JPanel {
             nextButton.setEnabled(false);
         }
 
-        // 6. [중요] UI 갱신
         productButtonPanel.revalidate();
         productButtonPanel.repaint();
     }
     
     /**
-     * [3단계 구현 예고]
+     * [3단계 핵심 수정]
+     * 사용자가 상품 버튼을 클릭했을 때 호출되는 메소드.
+     * @param product 사용자가 클릭한 Product 객체
      */
     private void handleProductClick(Product product) {
-        System.out.printf("'%s' 상품이 선택되었습니다. (3단계에서 장바구니 추가 예정)\n", product.getName());
+        
+        // 1. [신규] 확인 팝업창 띄우기
+        // (부모 컴포넌트, 메시지, 타이틀, 옵션 타입)
+        String confirmMsg = String.format("'%s' (%s) 상품을\n장바구니에 추가하시겠습니까?", 
+                                         product.getName(),
+                                         String.format("%,d원", product.getPrice()));
+        
+        int choice = JOptionPane.showConfirmDialog(
+                        this,  // 부모 컴포넌트 (이 패널 중앙에 뜸)
+                        confirmMsg, 
+                        "장바구니 추가 확인", 
+                        JOptionPane.OK_CANCEL_OPTION // 확인 / 취소 버튼
+                     );
+
+        // 2. [신규] 사용자가 '확인'을 눌렀는지 검사
+        if (choice == JOptionPane.OK_OPTION) {
+            // 3. Controller를 통해 Cart 모델에 상품 추가
+            manager.getCart().addProduct(product);
+            
+            // 4. [신규] 완료 알림 팝업창 띄우기
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "'" + product.getName() + "' 상품이 장바구니에 추가되었습니다.",
+                    "추가 완료", 
+                    JOptionPane.INFORMATION_MESSAGE // 정보 아이콘
+            );
+        } else {
+            // (사용자가 '취소'를 누른 경우 - 아무것도 하지 않음)
+        }
     }
 }

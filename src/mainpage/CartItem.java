@@ -1,4 +1,4 @@
-package mainpage.model;
+package mainpage;
 
 // 이 클래스는 특정 '상품(Product)'과 해당 상품의 '수량(quantity)'을 하나의 단위로 묶어 관리함
 public class CartItem {
@@ -28,6 +28,13 @@ public class CartItem {
     // Cart/addProduct(Product) 메소드에서 이미 장바구니에 존재하는 상품이 또 추가될 때 호출됩니다.
     public void increaseQuantity() {
         this.quantity++;
+    }
+
+    // 수량 1 감소 (Cart의 decrementProduct에서 호출)
+    public void decreaseQuantity() {
+        if (this.quantity > 0) { // 혹시 모를 오류 방지
+            this.quantity--;
+        }
     }
     
     // (상품 가격 * 수량)의 총액 (long 타입) 반환

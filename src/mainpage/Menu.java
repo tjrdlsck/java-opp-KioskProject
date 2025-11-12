@@ -1,4 +1,4 @@
-package mainpage.model;
+package mainpage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ public class Menu {
 
     public Menu(String categoryName) {
         this.categoryName = categoryName;
+        // 상품을 담을 수 있는 빈 'ArrayList'를 생성하여 필드에 할당
         this.products = new ArrayList<>(); 
     }
 
@@ -29,6 +30,7 @@ public class Menu {
     }
 
     // 메뉴 카테고리에 상품(Product) 추가
+    // DataLoader 가 텍스트 파일로부터 상품 정보를 읽어들일 때 Menu 객체애 상품을 추가하기 위해 호출
     public void addProduct(Product product) {
         this.products.add(product);
     }

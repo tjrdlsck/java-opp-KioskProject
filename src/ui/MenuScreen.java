@@ -33,7 +33,6 @@ public class MenuScreen extends JPanel {
     private List<Store> stores;
 
     private final CartFileManager cartFileManager;
-    private String currentCustomerName = null;
     private String currentCustomerPhone = null;
     
     /**
@@ -214,23 +213,17 @@ public class MenuScreen extends JPanel {
             JOptionPane.showMessageDialog(this, "장바구니가 비어있어 저장할 수 없습니다.", "저장 실패", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String name = JOptionPane.showInputDialog(this, "저장할 고객의 이름을 입력하세요:", "이름 입력", JOptionPane.QUESTION_MESSAGE);
-        if (name == null || name.trim().isEmpty()) {
-            return; 
-        }
-        String phone = getValidPhoneNumber("고객의 전화번호를 입력하세요:");
+        String phone = getValidPhoneNumber("장바구니를 저장할 전화번호를 입력하세요:");
         if (phone == null) return;
-        cartFileManager.saveCart(cart, name, phone);
-        JOptionPane.showMessageDialog(this, name + "님의 장바구니가 저장되었습니다.", "저장 완료", JOptionPane.INFORMATION_MESSAGE);
+        cartFileManager.saveCart(cart, phone);
+        JOptionPane.showMessageDialog(this, "전화번호 " + phone + "으로 장바구니가 저장되었습니다.", "저장 완료", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // (processLoadCart 메소드는 원본과 동일)
     private void processLoadCart() {
-        String name = JOptionPane.showInputDialog(this, "불러올 고객의 이름을 입력하세요:", "이름 입력", JOptionPane.QUESTION_MESSAGE);
-        if (name == null || name.trim().isEmpty()) return;
-        String phone = getValidPhoneNumber("고객의 전화번호를 입력하세요:");
+        String phone = getValidPhoneNumber("불러올 장바구니의 전화번호를 입력하세요:");
         if (phone == null) return;
-        Cart loadedCart = cartFileManager.loadCart(name, phone);
+        Cart loadedCart = cartFileManager.loadCart(phone);
         if (loadedCart != null) {
             orderPanel.clearOrders(); 
             for (CartItem item : loadedCart.getItems()) {
@@ -239,9 +232,8 @@ public class MenuScreen extends JPanel {
                     orderPanel.addOrder(p);
                 }
             }
-            this.currentCustomerName = name;
             this.currentCustomerPhone = phone;
-            JOptionPane.showMessageDialog(this, name + "님의 장바구니를 불러왔습니다.", "불러오기 성공", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "전화번호 " + phone + "의 장바구니를 불러왔습니다.", "불러오기 성공", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "해당 정보로 저장된 장바구니를 찾을 수 없습니다.", "불러오기 실패", JOptionPane.ERROR_MESSAGE);
         }
@@ -304,12 +296,11 @@ public class MenuScreen extends JPanel {
         if (choice == JOptionPane.YES_OPTION) {
             Order newOrder = new Order(cart, pickupTime);
             newOrder.displayOrderDetails();
-            if (this.currentCustomerName != null) {
-                cartFileManager.deleteCart(this.currentCustomerName, this.currentCustomerPhone);
+            if (this.currentCustomerPhone != null) {
+                cartFileManager.deleteCart(this.currentCustomerPhone);
                 JOptionPane.showMessageDialog(this,
-                        "주문이 완료되어 '" + this.currentCustomerName + "'님의 저장된 장바구니도 삭제했습니다.",
+                        "주문이 완료되어 전화번호 '" + this.currentCustomerPhone + "'님의 저장된 장바구니도 삭제했습니다.",
                         "저장된 내역 삭제", JOptionPane.INFORMATION_MESSAGE);
-                this.currentCustomerName = null;
                 this.currentCustomerPhone = null;
             }
             JOptionPane.showMessageDialog(this,
@@ -320,4 +311,5 @@ public class MenuScreen extends JPanel {
     }
     
     // 5. 'main' 메소드 완전 삭제 (MainApplication.java가 유일한 진입점)
+
 }

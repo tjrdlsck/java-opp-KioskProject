@@ -32,30 +32,28 @@ public class CartFileManager {
     
     /*  
      장바구니 내용을 텍스트 파일로 저장
-     파일 이름은 고객 이름과 전화번호를 조합하여 생성
-     (예: cart_홍길동_01012345678.txt)
+     파일 이름은 고객 전화번호를 이용하여 생성
+     (예: cart_01012345678.txt)
      
      파일 저장 형식
-     NAME|고객이름
      PHONE|고객전화번호
      --- 
      상품이름1|가격1|이미지경로1|수량1
      상품이름2|가격2|이미지경로2|수량2
     */ 
-    public void saveCart(Cart cart, String customerName, String phoneNumber) {
+    public void saveCart(Cart cart, String phoneNumber) {
         if (cart.getItems().isEmpty()) {
             System.out.println("장바구니가 비어있어 저장할 수 없습니다.");
             return;
         }
         // 파일 이름 지정
-        String fileName = String.format("cart_%s_%s.txt", customerName, phoneNumber);
+        String fileName = String.format("cart_%s.txt", phoneNumber);
         
         File cartFile = new File(CART_DATA_DIRECTORY, fileName);
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(cartFile))) {
             
             // 고객 정보 쓰기
-            writer.println("NAME|" + customerName);
             writer.println("PHONE|" + phoneNumber);
             // 고객 정보와 상품 정보를 구분하는 구분자
             writer.println("---"); 
@@ -80,10 +78,10 @@ public class CartFileManager {
     }
 
     // 저장된 장바구니 파일을 삭제 (return 값 : 삭제 성공 시 true)
-    public boolean deleteCart(String customerName, String phoneNumber) {
+    public boolean deleteCart(String phoneNumber) {
         
         // 'saveCart'와 동일한 규칙으로 파일 이름을 생성
-        String fileName = String.format("cart_%s_%s.txt", customerName, phoneNumber);
+        String fileName = String.format("cart_%s.txt", phoneNumber);
         File cartFile = new File(CART_DATA_DIRECTORY, fileName);
 
         if (cartFile.exists()) {
@@ -101,8 +99,8 @@ public class CartFileManager {
     }
 
     // 파일로부터 장바구니 데이터를 읽
-    public Cart loadCart(String customerName, String phoneNumber) {
-        String fileName = String.format("cart_%s_%s.txt", customerName, phoneNumber);
+    public Cart loadCart(String phoneNumber) {
+        String fileName = String.format("cart_%s.txt", phoneNumber);
         File cartFile = new File(CART_DATA_DIRECTORY, fileName);
 
         if (!cartFile.exists()) {

@@ -1,7 +1,0 @@
-STORE|Starbucks|세계적인 커피 전문점
-CATEGORY|커피
-PRODUCT|아메리카노|4500
-PRODUCT|카페 라떼|5000
-PRODUCT|카라멜 마끼아또|5900
-CATEGORY|디저트
-PRODUCT|클라우드 치즈 케이크|5500

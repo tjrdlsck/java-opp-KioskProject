@@ -1,0 +1,152 @@
+STORE|종합강의동|Dictionary
+CATEGORY|커피 (2shot)
+PRODUCT|Hot 아메리카노 마스터_고소|2300|
+PRODUCT|Hot 아메리카노 로스터_신맛|2300|
+PRODUCT|Ice 아메리카노 마스터_고소|2600|
+PRODUCT|Ice 아메리카노 로스터_신맛|2600|
+PRODUCT|Hot디카페인 아메리카노|2800|
+PRODUCT|lce디카페인 아메리카노|3100|
+PRODUCT|Hot헤이즐넛아메리카노|2800|
+PRODUCT|lce헤이즐넛 아메리카노|3100|
+PRODUCT|Hot 카페라떼 마스터_고소|3100|
+PRODUCT|Hot 카페라떼 로스터_신맛|3100|
+PRODUCT|Ice 카페라떼 마스터_고소|3400|
+PRODUCT|Ice 카페라떼 로스터_신맛|3400|
+PRODUCT|Hot바닐라라떼|3500|
+PRODUCT|lce바닐라라떼|3800|
+PRODUCT|Hot헤이즐넛라떼|3500|
+PRODUCT|lce헤이즐넛라떼|3800|
+PRODUCT|Hot카푸치노|3200|
+PRODUCT|lce카푸치노|3500|
+PRODUCT|Hot카페모카|3900|
+PRODUCT|lce카페모카|4200|
+PRODUCT|Hot카라멜마끼아또|3900|
+PRODUCT|Ice카라멜마끼아또|4200|
+PRODUCT|Hot스페니쉬라떼(연유)|3900|
+PRODUCT|Ice스페니쉬라떼(연유)|4200|
+PRODUCT|콜드브루(only Ice)|3400|
+PRODUCT|콜드브루 라떼(only Ice)|4000|
+PRODUCT|Ice 뚱카노|3700|
+OPTION|샷추가|500|
+OPTION|디카페인 원두로 변경|500|
+
+CATEGORY|신메뉴
+PRODUCT|Hot 오곡라떼(미숫가루)|3800|
+PRODUCT|Ice 오곡라떼(미숫가루)|4100|
+
+CATEGORY|베이커리
+#베이커리 주문은 카운터에서 가능하여 제외함
+
+CATEGORY|아이스크림
+PRODUCT|소프트 아이스크림|2700|
+PRODUCT|딸기연유 아이스크림|4400|
+PRODUCT|아이스크림 카페라떼|4800|
+OPTION|음료에 아이스크림 추가|1500|
+PRODUCT|아포가토|3200|
+PRODUCT|오레오 아이스크림|3000|
+
+CATEGORY|시그니처
+PRODUCT|로열밀크티|4600|
+PRODUCT|달고나 밀크티(only Ice)|4800|
+PRODUCT|아인슈페너(only Ice)|4600|
+PRODUCT|아인슈페너라떼(only Ice)|4900|
+PRODUCT|누텔라라떼(only Ice)|4600|
+PRODUCT|블랙버블티(only Ice)|4600|
+PRODUCT|레드버블티(only Ice)|4600|
+
+CATEGORY|커피(1shot)
+PRODUCT|mini_Hot 아메리카노(고소)|1800|
+PRODUCT|mini_Hot 아메리카노(신맛)|1800|
+PRODUCT|mini_Ice 아메리카노(고소)|2100|
+PRODUCT|mini_Ice 아메리카노(신맛)|2100|
+PRODUCT|mini_Hot 라떼(고소)|2500|
+PRODUCT|mini_Hot 라떼(신맛)|2500|
+PRODUCT|mini_Ice 라떼(고소)|2800|
+PRODUCT|mini_Ice 라떼(신맛)|2800|
+PRODUCT|에스프레소|1800|
+
+CATEGORY|라떼 / 주스
+PRODUCT|Hot 카카오라떼|3600|
+PRODUCT|Ice 카카오라떼|3900|
+PRODUCT|Hot 그린티라떼|3600|
+PRODUCT|Ice 그린티라떼|3900|
+PRODUCT|Hot 자색고구마라떼|3600|
+PRODUCT|Ice 자색고구마라떼|3900|
+PRODUCT|Hot 민트초코라떼|3600|
+PRODUCT|Ice 민트초코라떼|3900|
+PRODUCT|Hot 토피넛 라떼|4000|
+PRODUCT|Ice 토피넛 라떼|4300|
+PRODUCT|Hot 오곡라떼(미숫가루)|3800|
+PRODUCT|Ice 오곡라떼(미숫가루)|4100|
+PRODUCT|달고나 밀크(only Ice)|3900|
+PRODUCT|리얼스트로베리라떼(only Ice)|4000|
+PRODUCT|딸기 주스|4000|
+PRODUCT|바나나 주스|4000|
+PRODUCT|딸기바나나 주스|4100|
+PRODUCT|Hot 스팀우유|4000|
+OPTION|샷추가|500|
+OPTION|버블추가|500|
+
+
+CATEGORY|티
+PRODUCT|Hot 수제 레몬티|3400|
+PRODUCT|Ice 수제 레몬티|3700|
+PRODUCT|Hot 수제 자몽티|3400|
+PRODUCT|Ice 수제 자몽티|3700|
+PRODUCT|Hot 유자차|3400|
+PRODUCT|Ice 유자차|3700|
+PRODUCT|Hot 얼그레이|3400|
+PRODUCT|Ice 얼그레이|3700|
+PRODUCT|Hot 캐모마일|3400|
+PRODUCT|Ice 캐모마일|3700|
+PRODUCT|Hot 페퍼민트|3400|
+PRODUCT|Ice 페퍼민트|3700|
+PRODUCT|Hot 블루베리 루이보스|3400|
+PRODUCT|Ice 블루베리 루이보스|3700|
+PRODUCT|Hot 제주오실록 녹차|3700|
+PRODUCT|Ice 제주오실록 녹차|4000|
+PRODUCT|Hot 제주오실록 달빛걷기|3700|
+PRODUCT|Ice 제주오실록 달빛걷기|4000|
+PRODUCT|Hot 오미자차|3600|
+PRODUCT|Ice 오미자차|3900|
+PRODUCT|Hot 생강차(only 10oz)|3700|
+PRODUCT|체리블라썸 아이스티(only Ice)|4300|
+
+
+CATEGORY|스파클링 / 아이스티
+PRODUCT|복숭아 아이스티|2900|
+PRODUCT|레몬 아이스티|2900|
+PRODUCT|아샷추(복숭아)|3400|
+PRODUCT|아샷추(레몬)|3400|
+PRODUCT|허니 레몬 블랙티|4000|
+PRODUCT|허니 자몽 블랙티|4000|
+PRODUCT|레몬라임 스파클링|3900|
+PRODUCT|자몽 스파클링|3900|
+PRODUCT|딸기 스파클링|3900|
+PRODUCT|청포도 스파클링|3900|
+PRODUCT|오미자 스파클링|3900|
+PRODUCT|체리콕|3900|
+OPTION|샷추가|500|
+
+CATEGORY|프라페
+PRODUCT|카카오 프라페|3900|
+PRODUCT|카라멜 프라페|4000|
+PRODUCT|그린티 프라페|4000|
+PRODUCT|민트초코 프라페|4200|
+PRODUCT|자바칩 프라페|4200|
+PRODUCT|쿠키앤크림 프라페|4400|
+PRODUCT|요거트 프라페|4000|
+PRODUCT|딸기 요거트 프라페|4200|
+PRODUCT|초코바나나 프라페|4200|
+OPTION|샷추가|500|
+OPTION|버블 추가|500|
+OPTION|휘핑크림 추가|500|
+
+CATEGORY|추가 메뉴
+OPTION|샷추가|500|
+OPTION|버블 추가|500|
+OPTION|휘핑크림 추가|500|
+OPTION|초코 드리즐 추가|500|
+OPTION|카라멜 드리즐 추가|500|
+OPTION|헤이즐넛 시럽 추가|500|
+OPTION|음료에 아이스크림 추가|1500|

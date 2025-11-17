@@ -1,0 +1,107 @@
+STORE|7강의동|BLUEPOT
+
+CATEGORY|커피
+PRODUCT|멜팅버터스카치|3800|
+PRODUCT|아메리카노|2100|
+PRODUCT|샷추가 아메리카노|2600|
+PRODUCT|스페셜 아메리카노|3100|
+PRODUCT|헤이즐넛|2600|
+PRODUCT|에스프레소|1800|
+PRODUCT|카페라떼|3200|
+PRODUCT|카페라떼(바닐라)|3600|
+PRODUCT|카페라떼(카라멜)|3600|
+PRODUCT|카페라떼(헤이즐넛)|3600|
+PRODUCT|카푸치노|3200|
+PRODUCT|카라멜 마끼아또|3900|
+PRODUCT|카페 모카(다크)|3900|
+PRODUCT|카페 모카(카라멜)|3900|
+PRODUCT|얼그레이크림커피|3600|
+PRODUCT|얼그레이크림라떼|4100|
+
+CATEGORY|콜드브루
+PRODUCT|콜드브루|3000|
+PRODUCT|콜드브루 라떼|3500|
+PRODUCT|콜드브루 바닐라|4000|
+PRODUCT|아인슈페너|3500|
+PRODUCT|아인슈페너 라떼|4000|
+
+CATEGORY|라떼
+PRODUCT|공주밤라떼|3800|
+PRODUCT|12곡라떼|3500|
+PRODUCT|제주산 말차 라떼|3600|
+PRODUCT|샷추가 제주산말차라떼|4000|
+PRODUCT|초콜릿(다크)|3200|
+PRODUCT|허니진저라떼|4200|
+PRODUCT|아인슈페너 초코|4000|
+PRODUCT|민트초코라떼|3600|
+PRODUCT|조리퐁라떼|4100|
+PRODUCT|타이거슈가|4100|
+PRODUCT|뉴딸기라떼|3700|
+PRODUCT|엘리자베스 스페셜 티|3300|
+PRODUCT|엘리자베스 레몬티|3800|
+PRODUCT|엘리자베스 딸기티|3800|
+PRODUCT|카라넛라떼|3500|
+
+CATEGORY|티
+PRODUCT|아샷추|2700|
+PRODUCT|피치 아이스티|2200|
+PRODUCT|꿀자몽블랙티|3800|
+PRODUCT|자스민|2300|
+PRODUCT|로즈마리|2300|
+PRODUCT|얼그레이|2300|
+PRODUCT|캐모마일|2300|
+PRODUCT|페퍼민트|2300|
+PRODUCT|잉글리쉬블랙퍼스트|2300|
+PRODUCT|진저티|3500|
+PRODUCT|녹차|2300|
+PRODUCT|레몬차|2700|
+PRODUCT|유자차|2700|
+PRODUCT|자몽차|2700|
+PRODUCT|히비스커스|2500|
+PRODUCT|유자히비스커스|3200|
+PRODUCT|레몬히비스커스|3200|
+
+CATEGORY|에이드
+PRODUCT|레몬에이드|3000|
+PRODUCT|청포도에이드|3000|
+PRODUCT|망고스프라이트에이드|3500|
+PRODUCT|자몽에이드|3000|
+PRODUCT|블루레몬에이드|3500|
+
+CATEGORY|스무디
+PRODUCT|파인애플요거트스무디|3900|
+PRODUCT|요거트스무디(딸기)|3900|
+PRODUCT|요거트스무디(블루베리)|3900|
+PRODUCT|요거트스무디(키위)|3900|
+
+CATEGORY|프라페
+PRODUCT|프라페(제주산말차)|4300|
+PRODUCT|프라페(바닐라)|4300|
+PRODUCT|프라페(자바칩)|4300|
+PRODUCT|프라페(쿠앤크)|4300|
+PRODUCT|프라페(민트초코)|4300|
+PRODUCT|프라페(모카)|4300|
+PRODUCT|프라페(카라멜)|4300|
+PRODUCT|프라페(미드나잇 초코)|4600|
+
+CATEGORY|주스
+PRODUCT|딸기주스|4000|
+
+CATEGORY|핫도그
+PRODUCT|크크! 도그|2500|
+PRODUCT|크크! 크리미어니언 도그|3000|
+PRODUCT|크크! 칠리 도그|3000|
+PRODUCT|크크! 체더도그|3000|
+
+CATEGORY|베이커리&간편식
+PRODUCT|베이글(어니언)|2200|
+PRODUCT|베이글(블루베리)|2200|
+PRODUCT|크림치즈(플레인)|1000|
+
+CATEGORY|MD상품
+PRODUCT|썬데이즈 스낵 어니언|2700|
+PRODUCT|썬데이즈 스낵 칠리|2700|
+PRODUCT|하리보 골드베렌 100g|1400|
+PRODUCT|복베리(제로)|4000|
+PRODUCT|복베리(오리지날)|4000|
+PRODUCT|블루포트 텀블러|35000|

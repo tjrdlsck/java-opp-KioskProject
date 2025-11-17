@@ -8,7 +8,10 @@ import mainpage.CartItem;
 import mainpage.Product;
 import mainpage.CartFileManager;
 import mainpage.Order;
-import java.util.regex.Pattern; 
+import java.util.regex.Pattern;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -244,12 +247,46 @@ public class MenuScreen extends JPanel {
         }
     }
 
+    private LocalTime getPickupTime() {
+        LocalTime pickupTime = null;
+        while (pickupTime == null) {
+            String timeStr = JOptionPane.showInputDialog(this, "픽업 희망 시간을 입력하세요 (HH:mm 형식, 예: 14:30)", "픽업 시간 선택", JOptionPane.QUESTION_MESSAGE);
+            if (timeStr == null) { // 사용자가 '취소'를 누른 경우
+                return null;
+            }
+            try {
+                // DateTimeFormatter를 사용하여 HH:mm 형식으로만 파싱되도록 엄격하게 설정
+                DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+                LocalTime parsedTime = LocalTime.parse(timeStr, timeFormatter);
+
+                if (parsedTime.isBefore(LocalTime.now())) {
+                    JOptionPane.showMessageDialog(this, "픽업 시간은 현재 시간 이후여야 합니다.", "입력 오류", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    pickupTime = parsedTime;
+                }
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(this, "시간 형식이 잘못되었습니다. HH:mm 형식으로 입력해주세요. (예: 14:30)", "입력 오류", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return pickupTime;
+    }
+
     // (processPlaceOrder 메소드는 원본과 동일)
     private void processPlaceOrder() {
         if (orderPanel.isEmpty()) {
             JOptionPane.showMessageDialog(this, "주문 내역이 없습니다.");
             return;
         }
+
+        // 1. 픽업 시간 입력받기
+        LocalTime pickupTime = getPickupTime();
+        if (pickupTime == null) { // 사용자가 픽업 시간 입력을 취소한 경우
+            JOptionPane.showMessageDialog(this, "주문이 취소되었습니다.", "주문 취소", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        String formattedPickupTime = pickupTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+
+
         Cart cart = orderPanel.getCart();
         StringBuilder sb = new StringBuilder("🧾 주문내역\n\n");
         for (CartItem item : cart.getItems()) {
@@ -258,14 +295,15 @@ public class MenuScreen extends JPanel {
                     p.getName(), p.getPrice(), item.getQuantity(), item.getTotalPrice()));
         }
         sb.append("\n--------------------\n");
-        sb.append(String.format("총 결제 금액: %,d원\n\n", cart.getTotalPrice()));
+        sb.append(String.format("총 결제 금액: %,d원\n", cart.getTotalPrice()));
+        sb.append(String.format("픽업 희망 시간: %s\n\n", formattedPickupTime));
         sb.append("이대로 주문하시겠습니까?");
 
         int choice = JOptionPane.showConfirmDialog(this, sb.toString(), "주문 확인", JOptionPane.YES_NO_OPTION);
 
         if (choice == JOptionPane.YES_OPTION) {
-            Order newOrder = new Order(cart);
-            newOrder.displayOrderDetails(); 
+            Order newOrder = new Order(cart, pickupTime);
+            newOrder.displayOrderDetails();
             if (this.currentCustomerName != null) {
                 cartFileManager.deleteCart(this.currentCustomerName, this.currentCustomerPhone);
                 JOptionPane.showMessageDialog(this,
@@ -277,7 +315,7 @@ public class MenuScreen extends JPanel {
             JOptionPane.showMessageDialog(this,
                     "주문이 완료되었습니다. (주문번호: " + newOrder.getOrderNumber() + ")",
                     "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-            orderPanel.clearOrders(); 
+            orderPanel.clearOrders();
         }
     }
     

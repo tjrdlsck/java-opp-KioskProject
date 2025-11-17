@@ -1,18 +1,13 @@
 package ui;
 
-import mainpage.Cart;
-import mainpage.CartFileManager;
-import mainpage.CartItem;
-import mainpage.Order;
-import mainpage.OrderFileManager;
-import mainpage.Product;
-import mainpage.Store;
+import mainpage.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -20,23 +15,23 @@ public class MenuScreen extends JPanel {
     private final CafeMenuPanel cafeMenuPanel;
     private final OrderPanel orderPanel;
     private JScrollPane cafeScroll;
-    private JPanel cafeScrollContainer;
+    private final MainApplication mainApp;
+    private final CongestionManager congestionManager;
 
     private List<Store> stores;
-
     private final CartFileManager cartFileManager;
     private final OrderFileManager orderFileManager;
     private String currentCustomerPhone = null;
-    private Store currentStore = null; // 현재 선택된 가게를 저장할 필드
+    private Store currentStore = null;
 
-    public MenuScreen(List<Store> allStores, Store initialStore) {
-        int width = 648;
-        setLayout(new BorderLayout());
-
+    public MenuScreen(List<Store> allStores, Store initialStore, MainApplication mainApp, CongestionManager congestionManager) {
+        this.stores = allStores;
+        this.mainApp = mainApp;
+        this.congestionManager = congestionManager;
         this.cartFileManager = new CartFileManager();
         this.orderFileManager = new OrderFileManager();
 
-        this.stores = allStores;
+        setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(230, 230, 230));
@@ -44,19 +39,15 @@ public class MenuScreen extends JPanel {
         JButton leftArrow = createStyledArrowButton("◀");
         JButton rightArrow = createStyledArrowButton("▶");
 
-        cafeScrollContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        JPanel cafeScrollContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         cafeScrollContainer.setBackground(new Color(230, 230, 230));
 
         if (this.stores != null) {
             for (Store store : this.stores) {
-                String cafeName = store.getName();
-
-                JButton cafeBtn = new JButton(cafeName);
+                JButton cafeBtn = new JButton(store.getName());
                 cafeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
                 cafeBtn.setPreferredSize(new Dimension(144, 40));
-
                 cafeBtn.addActionListener(e -> loadCafeMenu(store));
-
                 cafeScrollContainer.add(cafeBtn);
             }
         }
@@ -81,30 +72,25 @@ public class MenuScreen extends JPanel {
         add(cafeMenuPanel, BorderLayout.CENTER);
 
         orderPanel = new OrderPanel();
-
         JPanel rightButtons = new JPanel(new GridLayout(2, 2, 10, 10));
         rightButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
         JButton saveCartBtn = new JButton("장바구니 저장");
         JButton clearBtn = new JButton("전체삭제");
         JButton loadCartBtn = new JButton("장바구니 불러오기");
         JButton orderBtn = new JButton("주문하기");
-
         Font buttonFont = new Font("맑은 고딕", Font.BOLD, 16);
         saveCartBtn.setFont(buttonFont);
         clearBtn.setFont(buttonFont);
         loadCartBtn.setFont(buttonFont);
         orderBtn.setFont(buttonFont);
-
         rightButtons.add(saveCartBtn);
         rightButtons.add(clearBtn);
         rightButtons.add(loadCartBtn);
         rightButtons.add(orderBtn);
-
         JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
         bottomPanel.add(orderPanel);
         bottomPanel.add(rightButtons);
-        bottomPanel.setPreferredSize(new Dimension(width, 200));
+        bottomPanel.setPreferredSize(new Dimension(648, 200));
         add(bottomPanel, BorderLayout.SOUTH);
 
         saveCartBtn.addActionListener(e -> processSaveCart());
@@ -122,7 +108,7 @@ public class MenuScreen extends JPanel {
     }
 
     public void loadCafeMenu(Store store) {
-        this.currentStore = store; // 현재 가게 정보 저장
+        this.currentStore = store;
         cafeMenuPanel.loadCafeMenu(store, orderPanel::addOrder);
     }
 
@@ -142,22 +128,11 @@ public class MenuScreen extends JPanel {
     private String getValidPhoneNumber(String initialMessage) {
         String phoneRegex = "^010\\d{8}$";
         String phone;
-
         while (true) {
             phone = JOptionPane.showInputDialog(this, initialMessage, "전화번호 입력", JOptionPane.QUESTION_MESSAGE);
-
-            if (phone == null) {
-                return null;
-            }
-
-            if (Pattern.matches(phoneRegex, phone)) {
-                return phone;
-            }
-            else {
-                JOptionPane.showMessageDialog(this,
-                        "잘못된 형식입니다. '010'으로 시작하는 11자리 숫자를 입력해주세요.\n(예: 01012345678)",
-                        "입력 오류", JOptionPane.ERROR_MESSAGE);
-            }
+            if (phone == null) return null;
+            if (Pattern.matches(phoneRegex, phone)) return phone;
+            else JOptionPane.showMessageDialog(this, "잘못된 형식입니다. '010'으로 시작하는 11자리 숫자를 입력해주세요.\n(예: 01012345678)", "입력 오류", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -192,27 +167,81 @@ public class MenuScreen extends JPanel {
         }
     }
 
-    private LocalTime getPickupTime() {
-        LocalTime pickupTime = null;
-        while (pickupTime == null) {
-            String timeStr = JOptionPane.showInputDialog(this, "픽업 희망 시간을 입력하세요 (HH:mm 형식, 예: 14:30)", "픽업 시간 선택", JOptionPane.QUESTION_MESSAGE);
-            if (timeStr == null) {
-                return null;
-            }
-            try {
-                DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-                LocalTime parsedTime = LocalTime.parse(timeStr, timeFormatter);
+    private void updateCongestionLabel(LocalTime selectedTime, JLabel congestionLabel) {
+        if (selectedTime == null) return;
 
-                if (parsedTime.isBefore(LocalTime.now())) {
-                    JOptionPane.showMessageDialog(this, "픽업 시간은 현재 시간 이후여야 합니다.", "입력 오류", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    pickupTime = parsedTime;
-                }
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(this, "시간 형식이 잘못되었습니다. HH:mm 형식으로 입력해주세요. (예: 14:30)", "입력 오류", JOptionPane.ERROR_MESSAGE);
-            }
+        long count = congestionManager.getCongestionFor5MinSlot(currentStore.getName(), selectedTime);
+        congestionLabel.setText(String.format("해당 5분간 주문: %d건", count));
+
+        if (count >= 5) { // 5건 이상 '혼잡'
+            congestionLabel.setForeground(Color.RED);
+        } else if (count >= 3) { // 3-4건 '보통'
+            congestionLabel.setForeground(new Color(255, 165, 0));
+        } else { // 2건 이하 '여유'
+            congestionLabel.setForeground(new Color(0, 128, 0));
         }
-        return pickupTime;
+    }
+
+    private LocalTime getPickupTime() {
+        JPanel panel = new JPanel(new BorderLayout(5, 5));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JComboBox<LocalTime> timeSelector = new JComboBox<>();
+
+        // [v7 수정] 최소 5분 후 픽업 및 시간 정규화 로직
+        LocalTime now = LocalTime.now();
+        int minute = now.getMinute();
+        int remainder = minute % 5;
+        int minutesToNextBoundary = (remainder == 0) ? 5 : (5 - remainder);
+        LocalTime firstSlot = now.plusMinutes(minutesToNextBoundary).withSecond(0).withNano(0);
+
+        if (ChronoUnit.MINUTES.between(now, firstSlot) < 5) {
+            firstSlot = firstSlot.plusMinutes(5);
+        }
+
+        List<LocalTime> timeSlots = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            timeSlots.add(firstSlot.plusMinutes(i * 5L));
+        }
+        timeSelector.setModel(new DefaultComboBoxModel<>(timeSlots.toArray(new LocalTime[0])));
+
+        JLabel congestionLabel = new JLabel("시간을 선택하세요.");
+        congestionLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+
+        // [v7 수정] 렌더러에서 상대 시간 제거, 시간만 표시
+        timeSelector.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof LocalTime) {
+                    LocalTime time = (LocalTime) value;
+                    setText(time.format(DateTimeFormatter.ofPattern("HH:mm")));
+                }
+                return this;
+            }
+        });
+
+        timeSelector.addItemListener(e -> {
+            if (e.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+                updateCongestionLabel((LocalTime) e.getItem(), congestionLabel);
+            }
+        });
+
+        if (!timeSlots.isEmpty()) {
+            updateCongestionLabel(timeSlots.get(0), congestionLabel);
+        }
+
+        panel.add(new JLabel("픽업 희망 시간을 선택하세요:"), BorderLayout.NORTH);
+        panel.add(timeSelector, BorderLayout.CENTER);
+        panel.add(congestionLabel, BorderLayout.SOUTH);
+
+        int result = JOptionPane.showConfirmDialog(this, panel, "픽업 시간 선택", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (result == JOptionPane.OK_OPTION) {
+            return (LocalTime) timeSelector.getSelectedItem();
+        } else {
+            return null;
+        }
     }
 
     private void processPlaceOrder() {
@@ -220,7 +249,6 @@ public class MenuScreen extends JPanel {
             JOptionPane.showMessageDialog(this, "주문 내역이 없습니다.");
             return;
         }
-
         if (currentStore == null) {
             JOptionPane.showMessageDialog(this, "가게가 선택되지 않았습니다. 상단에서 가게를 선택해주세요.", "주문 오류", JOptionPane.ERROR_MESSAGE);
             return;
@@ -231,37 +259,31 @@ public class MenuScreen extends JPanel {
             JOptionPane.showMessageDialog(this, "주문이 취소되었습니다.", "주문 취소", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        String formattedPickupTime = pickupTime.format(DateTimeFormatter.ofPattern("HH:mm"));
-
 
         Cart cart = orderPanel.getCart();
         StringBuilder sb = new StringBuilder("🧾 주문내역\n\n");
         for (CartItem item : cart.getItems()) {
             Product p = item.getProduct();
-            sb.append(String.format("- %s (%,d원) x %d개 = %,d원\n",
-                    p.getName(), p.getPrice(), item.getQuantity(), item.getTotalPrice()));
+            sb.append(String.format("- %s (%,d원) x %d개 = %,d원\n", p.getName(), p.getPrice(), item.getQuantity(), item.getTotalPrice()));
         }
         sb.append("\n--------------------\n");
         sb.append(String.format("총 결제 금액: %,d원\n", cart.getTotalPrice()));
-        sb.append(String.format("픽업 희망 시간: %s\n\n", formattedPickupTime));
+        sb.append(String.format("픽업 희망 시간: %s\n\n", pickupTime.format(DateTimeFormatter.ofPattern("HH:mm"))));
         sb.append("이대로 주문하시겠습니까?");
-
         int choice = JOptionPane.showConfirmDialog(this, sb.toString(), "주문 확인", JOptionPane.YES_NO_OPTION);
 
         if (choice == JOptionPane.YES_OPTION) {
             Order newOrder = new Order(cart, pickupTime, currentStore);
             newOrder.displayOrderDetails();
             orderFileManager.saveOrder(newOrder);
+            congestionManager.refreshCache();
+
             if (this.currentCustomerPhone != null) {
                 cartFileManager.deleteCart(this.currentCustomerPhone);
-                JOptionPane.showMessageDialog(this,
-                        "주문이 완료되어 전화번호 '" + this.currentCustomerPhone + "'님의 저장된 장바구니도 삭제했습니다.",
-                        "저장된 내역 삭제", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "주문이 완료되어 전화번호 '" + this.currentCustomerPhone + "'님의 저장된 장바구니도 삭제했습니다.", "저장된 내역 삭제", JOptionPane.INFORMATION_MESSAGE);
                 this.currentCustomerPhone = null;
             }
-            JOptionPane.showMessageDialog(this,
-                    "주문이 완료되었습니다. (주문번호: " + newOrder.getOrderNumber() + ")",
-                    "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "주문이 완료되었습니다. (주문번호: " + newOrder.getOrderNumber() + ")", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
             orderPanel.clearOrders();
         }
     }

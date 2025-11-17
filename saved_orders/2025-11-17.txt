@@ -1,0 +1,10 @@
+--- ORDER #1 ---
+Store: 2강
+OrderTime: 2025-11-17 18:14:24
+PickupTime: 18:15
+TotalPrice: 6800
+Items:
+- 망고 판나코타 | 1개 | 3,400원
+- 블루베리 판나코타 | 1개 | 3,400원
+--- END ORDER #1 ---
+

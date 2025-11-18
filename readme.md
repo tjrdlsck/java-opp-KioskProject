@@ -4,6 +4,36 @@
 
 이 프로젝트는 자바 Swing을 기반으로 개발된 객체지향 키오스크 시스템입니다. 사용자가 카페를 선택하고, 메뉴를 주문하며, 픽업 시간을 지정하고, 장바구니를 관리할 수 있는 기능을 제공합니다. 특히, 가게의 혼잡도를 실시간으로 파악하여 사용자에게 효율적인 픽업 시간을 안내하는 기능이 강화되었습니다.
 
+## 개발 환경 설정 (Development Setup)
+
+이 프로젝트는 Windows와 macOS에서 일관된 UI를 제공하기 위해 **FlatLaf** 라이브러리를 사용합니다. 프로젝트를 Git에서 클론한 후, 각 IDE에 맞게 아래 설정을 진행해야 합니다.
+
+1.  **라이브러리 폴더 생성**
+    *   프로젝트 루트 디렉토리(`KioskProject/`)에 `libs` 라는 이름의 폴더를 생성합니다.
+    *   `flatlaf-3.6.2.jar` 파일을 이 `libs` 폴더 안에 위치시킵니다. (팀원 중 한 명이 파일을 커밋하면 다른 팀원들은 `git pull`만으로 파일을 받을 수 있습니다.)
+
+2.  **IDE별 라이브러리 추가**
+    아래 가이드에 따라 `libs` 폴더의 `.jar` 파일을 프로젝트의 빌드 경로(Build Path)에 추가합니다.
+
+### Eclipse 설정
+
+1.  Package Explorer에서 `KioskProject`를 마우스 오른쪽 버튼으로 클릭합니다.
+2.  `Build Path` > `Configure Build Path...` 메뉴로 들어갑니다.
+3.  `Libraries` 탭을 선택합니다.
+4.  `Classpath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
+5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
+6.  `Apply and Close`를 눌러 설정을 완료합니다.
+
+
+### IntelliJ IDEA 설정
+
+1.  `File` > `Project Structure...` 메뉴로 들어갑니다. (단축키: `⌘;` on Mac, `Ctrl+Alt+Shift+S` on Win/Linux)
+2.  왼쪽 메뉴에서 `Modules`를 선택합니다.
+3.  중앙 패널에서 `KioskProject` 모듈을 선택한 후, 오른쪽의 `Dependencies` 탭으로 이동합니다.
+4.  `+` 아이콘을 클릭하고 `JARs or directories...`를 선택합니다.
+5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
+6.  `Scope`가 `Compile`로 설정되었는지 확인하고 `OK`를 눌러 설정을 완료합니다.
+   
 ## UI 구조
 ## 1\. 카페 선택 화면 (CafeSelectionScreen)
 
@@ -161,37 +191,6 @@
 | +------------------------------------------------------------[v]+ |
 +------------------------------------------------------------------+
 ```
-
-## 개발 환경 설정 (Development Setup)
-
-이 프로젝트는 Windows와 macOS에서 일관된 UI를 제공하기 위해 **FlatLaf** 라이브러리를 사용합니다. 프로젝트를 Git에서 클론한 후, 각 IDE에 맞게 아래 설정을 진행해야 합니다.
-
-1.  **라이브러리 폴더 생성**
-    *   프로젝트 루트 디렉토리(`KioskProject/`)에 `libs` 라는 이름의 폴더를 생성합니다.
-    *   `flatlaf-3.6.2.jar` 파일을 이 `libs` 폴더 안에 위치시킵니다. (팀원 중 한 명이 파일을 커밋하면 다른 팀원들은 `git pull`만으로 파일을 받을 수 있습니다.)
-
-2.  **IDE별 라이브러리 추가**
-    아래 가이드에 따라 `libs` 폴더의 `.jar` 파일을 프로젝트의 빌드 경로(Build Path)에 추가합니다.
-
-### Eclipse 설정
-
-1.  Package Explorer에서 `KioskProject`를 마우스 오른쪽 버튼으로 클릭합니다.
-2.  `Build Path` > `Configure Build Path...` 메뉴로 들어갑니다.
-3.  `Libraries` 탭을 선택합니다.
-4.  `Classpath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
-5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
-6.  `Apply and Close`를 눌러 설정을 완료합니다.
-
-
-### IntelliJ IDEA 설정
-
-1.  `File` > `Project Structure...` 메뉴로 들어갑니다. (단축키: `⌘;` on Mac, `Ctrl+Alt+Shift+S` on Win/Linux)
-2.  왼쪽 메뉴에서 `Modules`를 선택합니다.
-3.  중앙 패널에서 `KioskProject` 모듈을 선택한 후, 오른쪽의 `Dependencies` 탭으로 이동합니다.
-4.  `+` 아이콘을 클릭하고 `JARs or directories...`를 선택합니다.
-5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
-6.  `Scope`가 `Compile`로 설정되었는지 확인하고 `OK`를 눌러 설정을 완료합니다.
-
 
 ## 시작하기
 

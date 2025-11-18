@@ -55,6 +55,18 @@ public class MainApplication extends JFrame {
     }
 
     public static void main(String[] args) {
+        // OS를 감지하여 Windows 환경일 경우 FlatLaf 테마를 적용합니다.
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) {
+            try {
+                com.formdev.flatlaf.themes.FlatMacLightLaf.setup();
+                System.out.println("Windows OS detected. FlatLaf Look and Feel applied.");
+            } catch (Exception ex) {
+                System.err.println("Failed to initialize FlatLaf. Using default Look and Feel.");
+                ex.printStackTrace();
+            }
+        }
+
         List<Store> allStores = new DataLoader().loadStores();
         SwingUtilities.invokeLater(() -> new MainApplication(allStores));
     }

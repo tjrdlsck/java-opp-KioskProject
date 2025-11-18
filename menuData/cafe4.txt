@@ -1,15 +1,15 @@
 STORE|E스퀘어|Gee
 CATEGORY|COFFEE
-PRODUCT|에스프레소|1800|
-PRODUCT|H아메리카노|2400|
-PRODUCT|I아메리카노|2700|
-PRODUCT|H디카페인 아메|2900|
-PRODUCT|I디카페인 아메|3200|
-PRODUCT|H헤이즐넛 아메|2800|
-PRODUCT|I헤이즐넛 아메|3100|
-PRODUCT|H카페라떼|3100|
-PRODUCT|I카페라떼|3400|
-PRODUCT|H바닐라 카페라떼|3500|
+PRODUCT|에스프레소|1800|image/cafe4/에스프레소.png
+PRODUCT|H아메리카노|2400|image/cafe4/H아메리카노.png
+PRODUCT|I아메리카노|2700|image/cafe4/I아메리카노.jpg
+PRODUCT|H디카페인 아메|2900|image/cafe4/H디카페인 아메.jpg
+PRODUCT|I디카페인 아메|3200|image/cafe4/I디카페인 아메.jpg
+PRODUCT|H헤이즐넛 아메|2800|image/cafe4/H헤이즐넛 아메.jpg
+PRODUCT|I헤이즐넛 아메|3100|image/cafe4/I헤이즐넛 아메.jpg
+PRODUCT|H카페라떼|3100|image/cafe4/H카페라떼.jpg
+PRODUCT|I카페라떼|3400|image/cafe4/I카페라떼.jpg
+PRODUCT|H바닐라 카페라떼|3500|image/cafe4/.jpg
 PRODUCT|I바닐라 카페라떼|3800|
 PRODUCT|H카라멜 카페라떼|3500|
 PRODUCT|I카라멜 카페라떼|3800|
@@ -28,7 +28,7 @@ PRODUCT|콜드브루라떼|4000|
 CATEGORY|LATTE
 PRODUCT|H 초코라떼|3600|
 PRODUCT|I 초코라떼|3900|
-PRODUCT|H 녹차라떼|3600|
+PRODUCT|H 녹차라떼|3600|/KioskProject/image/cafe4/H 녹차라떼.jpg
 PRODUCT|I 녹차라떼|3900|
 PRODUCT|I 아이스크림 초콜릿라떼|4500|
 PRODUCT|H 토피넛 라떼|3800|

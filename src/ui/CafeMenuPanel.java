@@ -21,7 +21,9 @@ public class CafeMenuPanel extends JPanel {
     private JScrollPane categoryScroll;
 
     public CafeMenuPanel() {
+    	
         setLayout(new BorderLayout());
+        
         JLabel guide = new JLabel("카페를 선택하세요 ☕", SwingConstants.CENTER);
         guide.setFont(new Font("맑은 고딕", Font.BOLD, 24));
         add(guide, BorderLayout.CENTER);
@@ -93,6 +95,9 @@ public class CafeMenuPanel extends JPanel {
         // ✅ 7. 카테고리별 메뉴 (CardLayout)
         categoryLayout = new CardLayout();
         categoryContainer = new JPanel(categoryLayout);
+        // 메뉴판 전체 연한 회색
+        categoryContainer.setBackground(new Color(245, 245, 245));
+        
 
         // ⛔️ [변경] for (String cat : categoryList) {
         // ✅ 8. [신규] *실제* 카테고리 목록으로 카드 생성
@@ -162,45 +167,80 @@ public class CafeMenuPanel extends JPanel {
 
         // ✅ 4. [수정] pagedMenuPanel (wrapper) 레이아웃 재구성
         JPanel wrapper = new JPanel(new BorderLayout());
-        wrapper.setBackground(Color.WHITE); // 배경색 통일
-        
+        wrapper.setBackground(Color.WHITE);
+
+        // ⭐ 추가: indicatorPanel을 감싸는 투명 wrapper 패널
+        JPanel indicatorWrapper = new JPanel(new BorderLayout());
+        indicatorWrapper.setOpaque(false); // 배경 회색 문제 해결
+        indicatorWrapper.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0)); // 살짝 위로 올리기
+
+        indicatorWrapper.add(indicatorPanel, BorderLayout.CENTER);
+
+        // ⭐ 기존 구조 유지
+        wrapper.add(pageContainer, BorderLayout.CENTER);
+        wrapper.add(indicatorWrapper, BorderLayout.SOUTH);  // ⭐ 수정됨
+        wrapper.add(prev, BorderLayout.WEST);
+        wrapper.add(next, BorderLayout.EAST);
+
+        return wrapper;
+
+        /*JPanel wrapper = new JPanel(new BorderLayout());
+        wrapper.setBackground(Color.WHITE); // 메뉴판 페이지 배경
+
         wrapper.add(pageContainer, BorderLayout.CENTER);  // 중앙: 메뉴 그리드 (페이지 전환)
         wrapper.add(indicatorPanel, BorderLayout.SOUTH); // 하단: 페이지 "점"
         wrapper.add(prev, BorderLayout.WEST);            // 왼쪽: "‹" 버튼
         wrapper.add(next, BorderLayout.EAST);            // 오른쪽: "›" 버튼
-        
-        return wrapper;
-    }
 
-    // ⛔️ [변경] List<MenuItem> items, Consumer<MenuItem> onAddOrder
-    // ✅ [수정] Product 리스트와 Consumer를 받도록 시그니처 변경
+        return wrapper;*/
+    }
+    
     private JPanel createMenuGrid(List<Product> items, Consumer<Product> onAddOrder) {
-        JPanel grid = new JPanel(new GridLayout(4, 2, 10, 10));
-        grid.setBorder(BorderFactory.createEmptyBorder(20, 60, 20, 60));
+
+        // ✅ 2행 3열 고정 그리드
+        JPanel grid = new JPanel(new GridLayout(2, 3, 20, 20));
         grid.setBackground(Color.WHITE);
 
-        // ⛔️ [변경] for (MenuItem item : items)
-        // ✅ [수정]
+        grid.setBorder(BorderFactory.createEmptyBorder(30, 10, 10, 10)); // 위 좌우 아래
+        
+        int count = 0;
+
         for (Product item : items) {
-            // ⛔️ [변경] JButton btn = new JButton("<html><center>" + item.name + "<br>" + item.price + "원</center></html>");
-            // ✅ [수정] Product의 getter를 사용하고, 가격에 쉼표(,) 포맷을 적용합니다.
-            String buttonText = String.format("<html><center>%s<br>%,d원</center></html>",
-                    item.getName(), item.getPrice());
-            JButton btn = new JButton(buttonText);
-            
-            btn.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
-            btn.setBackground(Color.WHITE);
-            btn.setFocusPainted(false);
-            // ✅ [수정] 이제 item은 Product 객체입니다.
-            btn.addActionListener(e -> onAddOrder.accept(item));
-            grid.add(btn);
+            if (count >= 6) break; // ✅ 3x2 = 최대 6개까지만 보여줌
+
+            // 셀 하나를 만들어서 그 안에 카드 넣기 (카드 크기는 MenuCard가 결정)
+            JPanel cell = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+            cell.setOpaque(false);
+
+            MenuCard card = new MenuCard(item.getName(), item.getPrice(), item.getImagePath());
+
+            // 클릭 시 주문 추가
+            card.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                    onAddOrder.accept(item);
+                }
+            });
+
+            cell.add(card);
+            grid.add(cell);
+
+            count++;
         }
 
-        int remain = 8 - items.size();
-        for (int i = 0; i < remain; i++) grid.add(new JPanel());
+        // ✅ 남는 칸은 빈 셀로 채워서 정확히 3x2 유지
+        while (count < 6) {
+            JPanel empty = new JPanel();
+            empty.setOpaque(false);
+            grid.add(empty);
+            count++;
+        }
 
         return grid;
     }
+
+
+    
     /**
      * [신규 추가] 모던 스타일 화살표 버튼 생성기 (MenuScreen에서 복사/수정)
      * "..." 문제 해결을 위해 setBorder(null)와 setContentAreaFilled(false)를 포함합니다.

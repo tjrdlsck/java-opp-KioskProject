@@ -20,8 +20,8 @@
 1.  Package Explorer에서 `KioskProject`를 마우스 오른쪽 버튼으로 클릭합니다.
 2.  `Build Path` > `Configure Build Path...` 메뉴로 들어갑니다.
 3.  `Libraries` 탭을 선택합니다.
-4.  `Classpath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
-5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
+4.  `Modulepath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
+5.  프로젝트 내부의 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
 6.  `Apply and Close`를 눌러 설정을 완료합니다.
 
 

@@ -8,20 +8,13 @@
 
 이 프로젝트는 Windows와 macOS에서 일관된 UI를 제공하기 위해 **FlatLaf** 라이브러리를 사용합니다. 프로젝트를 Git에서 클론한 후, 각 IDE에 맞게 아래 설정을 진행해야 합니다.
 
-1.  **라이브러리 폴더 생성**
-    *   프로젝트 루트 디렉토리(`KioskProject/`)에 `libs` 라는 이름의 폴더를 생성합니다.
-    *   `flatlaf-3.6.2.jar` 파일을 이 `libs` 폴더 안에 위치시킵니다. (팀원 중 한 명이 파일을 커밋하면 다른 팀원들은 `git pull`만으로 파일을 받을 수 있습니다.)
-
-2.  **IDE별 라이브러리 추가**
-    아래 가이드에 따라 `libs` 폴더의 `.jar` 파일을 프로젝트의 빌드 경로(Build Path)에 추가합니다.
-
 ### Eclipse 설정
 
 1.  Package Explorer에서 `KioskProject`를 마우스 오른쪽 버튼으로 클릭합니다.
 2.  `Build Path` > `Configure Build Path...` 메뉴로 들어갑니다.
 3.  `Libraries` 탭을 선택합니다.
-4.  `Classpath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
-5.  프로젝트 내부의 `libs` 폴더로 이동하여 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
+4.  `Modulepath`를 선택한 후, 우측의 `Add JARs...` 버튼을 클릭합니다.
+5.  프로젝트 내부의 `flatlaf-3.6.2.jar` 파일을 선택하고 `OK`를 누릅니다.
 6.  `Apply and Close`를 눌러 설정을 완료합니다.
 
 

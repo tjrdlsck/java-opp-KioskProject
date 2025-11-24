@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class MenuScreen extends JPanel {
@@ -72,21 +73,24 @@ public class MenuScreen extends JPanel {
         add(cafeMenuPanel, BorderLayout.CENTER);
 
         orderPanel = new OrderPanel();
-        JPanel rightButtons = new JPanel(new GridLayout(2, 2, 10, 10));
+        JPanel rightButtons = new JPanel(new GridLayout(2, 2, 10, 10)); // 레이아웃을 2x2로 다시 변경
         rightButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         JButton saveCartBtn = new JButton("장바구니 저장");
         JButton clearBtn = new JButton("전체삭제");
         JButton loadCartBtn = new JButton("장바구니 불러오기");
-        JButton orderBtn = new JButton("주문하기");
+        JButton orderBtn = new JButton("결제하기"); // 다시 "결제하기" 버튼으로 변경
+
         Font buttonFont = new Font("맑은 고딕", Font.BOLD, 16);
         saveCartBtn.setFont(buttonFont);
         clearBtn.setFont(buttonFont);
         loadCartBtn.setFont(buttonFont);
         orderBtn.setFont(buttonFont);
+
         rightButtons.add(saveCartBtn);
         rightButtons.add(clearBtn);
         rightButtons.add(loadCartBtn);
-        rightButtons.add(orderBtn);
+        rightButtons.add(orderBtn); // "결제하기" 버튼 추가
+
         JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
         bottomPanel.add(orderPanel);
         bottomPanel.add(rightButtons);
@@ -96,7 +100,7 @@ public class MenuScreen extends JPanel {
         saveCartBtn.addActionListener(e -> processSaveCart());
         clearBtn.addActionListener(e -> orderPanel.clearOrders());
         loadCartBtn.addActionListener(e -> processLoadCart());
-        orderBtn.addActionListener(e -> processPlaceOrder());
+        orderBtn.addActionListener(e -> processBankTransferOrder()); // "결제하기" 버튼 클릭 시 무통장입금 프로세스 실행
     }
 
     private void scrollCafeList(int offset) {
@@ -244,7 +248,9 @@ public class MenuScreen extends JPanel {
         }
     }
 
-    private void processPlaceOrder() {
+
+
+    private void processBankTransferOrder() {
         if (orderPanel.isEmpty()) {
             JOptionPane.showMessageDialog(this, "주문 내역이 없습니다.");
             return;
@@ -273,18 +279,52 @@ public class MenuScreen extends JPanel {
         int choice = JOptionPane.showConfirmDialog(this, sb.toString(), "주문 확인", JOptionPane.YES_NO_OPTION);
 
         if (choice == JOptionPane.YES_OPTION) {
-            Order newOrder = new Order(cart, pickupTime, currentStore);
-            newOrder.displayOrderDetails();
-            orderFileManager.saveOrder(newOrder);
-            congestionManager.refreshCache();
+            // 무통장입금 정보 다이얼로그 표시
+            Random rand = new Random();
+            String accountNumber = String.format("%03d-%06d-%02d-%03d",
+                rand.nextInt(1000),
+                rand.nextInt(1000000),
+                rand.nextInt(100),
+                rand.nextInt(1000)
+            );
 
-            if (this.currentCustomerPhone != null) {
-                cartFileManager.deleteCart(this.currentCustomerPhone);
-                JOptionPane.showMessageDialog(this, "주문이 완료되어 전화번호 '" + this.currentCustomerPhone + "'님의 저장된 장바구니도 삭제했습니다.", "저장된 내역 삭제", JOptionPane.INFORMATION_MESSAGE);
-                this.currentCustomerPhone = null;
+            String bankInfo = String.format(
+                "<html><body style='width: 300px;'>"
+                + "<h3>무통장입금 안내</h3>"
+                + "<p>아래 계좌로 입금하신 후 '결제 완료' 버튼을 눌러주세요.</p>"
+                + "<hr>"
+                + "<p><b>은행:</b> 경기은행</p>"
+                + "<p><b>계좌번호:</b> %s</p>"
+                + "<p><b>예금주:</b> %s</p>"
+                + "<p><b>금액:</b> %,d원</p>"
+                + "</body></html>",
+                accountNumber, "객체지향", cart.getTotalPrice()
+            );
+
+            Object[] options = {"결제완료", "취소"};
+            int bankChoice = JOptionPane.showOptionDialog(this, bankInfo, "무통장입금",
+                                                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                                                            null, options, options[0]); // options[0] is default
+
+            if (bankChoice == 0) { // "입금완료" 버튼을 누른 경우 (인덱스 0)
+                // "결제 완료"를 누른 경우
+                JOptionPane.showMessageDialog(this, "결제가 확인되었습니다.", "결제 확인", JOptionPane.INFORMATION_MESSAGE);
+
+                Order newOrder = new Order(cart, pickupTime, currentStore, "무통장입금");
+                newOrder.displayOrderDetails();
+                orderFileManager.saveOrder(newOrder);
+                congestionManager.refreshCache();
+
+                if (this.currentCustomerPhone != null) {
+                    cartFileManager.deleteCart(this.currentCustomerPhone);
+                    JOptionPane.showMessageDialog(this, "주문이 완료되어 전화번호 '" + this.currentCustomerPhone + "'님의 저장된 장바구니도 삭제했습니다.", "저장된 내역 삭제", JOptionPane.INFORMATION_MESSAGE);
+                    this.currentCustomerPhone = null;
+                }
+                JOptionPane.showMessageDialog(this, "주문이 완료되었습니다. (주문번호: " + newOrder.getOrderNumber() + ")", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                orderPanel.clearOrders();
+            } else {
+                JOptionPane.showMessageDialog(this, "결제가 취소되었습니다.", "결제 취소", JOptionPane.INFORMATION_MESSAGE);
             }
-            JOptionPane.showMessageDialog(this, "주문이 완료되었습니다. (주문번호: " + newOrder.getOrderNumber() + ")", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-            orderPanel.clearOrders();
         }
     }
 }

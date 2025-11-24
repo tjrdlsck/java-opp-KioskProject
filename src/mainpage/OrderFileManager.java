@@ -53,6 +53,7 @@ public class OrderFileManager {
             writer.println("OrderTime: " + order.getOrderDateTime().format(dateTimeFormatter));
             writer.println("PickupTime: " + order.getPickupTime().format(timeFormatter));
             writer.println("TotalPrice: " + order.getTotalPrice());
+            writer.println("PaymentMethod: " + order.getPaymentMethod());
             writer.println("Items:");
 
             for (CartItem item : order.getOrderedItems()) {

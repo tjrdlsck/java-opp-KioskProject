@@ -45,8 +45,9 @@ public class Order {
     private final long totalPrice;
     private final LocalDateTime orderDateTime;
     private final LocalTime pickupTime;
+    private final String paymentMethod;
 
-    public Order(Cart cart, LocalTime pickupTime, Store store) {
+    public Order(Cart cart, LocalTime pickupTime, Store store, String paymentMethod) {
         this.orderNumber = ++orderSequence;
         saveSequence(); // 새 주문번호와 날짜를 파일에 저장
 
@@ -55,6 +56,7 @@ public class Order {
         this.totalPrice = cart.getTotalPrice();
         this.orderDateTime = LocalDateTime.now();
         this.pickupTime = pickupTime;
+        this.paymentMethod = paymentMethod;
     }
 
     private static synchronized void saveSequence() {
@@ -90,6 +92,10 @@ public class Order {
         return pickupTime;
     }
 
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
     public void displayOrderDetails() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = orderDateTime.format(formatter);
@@ -114,6 +120,7 @@ public class Order {
 
         System.out.println("------------------------------------");
         System.out.printf("결제 금액: %,d원\n", totalPrice);
+        System.out.printf("결제 수단: %s\n", paymentMethod);
         System.out.println("======================================");
     }
 }

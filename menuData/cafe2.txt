@@ -1,118 +1,118 @@
 STORE|2강|카페
 CATEGORY|SIGNATURE
-PRODUCT|딸기 판나코타|3400|
-PRODUCT|사과 판나코타|3400|
-PRODUCT|블루베리 판나코타|3400|
-PRODUCT|망고 판나코타|3400|
-PRODUCT|초코 판나코타|3400|
-PRODUCT|소다우유푸딩라떼|4400|
-PRODUCT|말차 판나코타|3400|
-PRODUCT|흑당 판나코타|3400|
-PRODUCT|햄치즈 샌드위치|6500|
-PRODUCT|에그포테이토 샌드위치|5800|
-PRODUCT|직화불고기 샌드위치|6900|
-PRODUCT|핫치킨 샌드위치|6900|
+PRODUCT|딸기 판나코타|3400|image/cafe2/딸기 판나코타.jpg
+PRODUCT|사과 판나코타|3400|image/cafe2/사과 판나코타.jpg
+PRODUCT|블루베리 판나코타|3400|image/cafe2/블루베리 판나코타.jpg
+PRODUCT|망고 판나코타|3400|image/cafe2/망고 판나코타.jpg
+PRODUCT|초코 판나코타|3400|image/cafe2/초코 판나코타.jpg
+PRODUCT|소다우유푸딩라떼|4400|image/cafe2/소다우유푸딩라떼.jpg
+PRODUCT|말차 판나코타|3400|image/cafe2/말차 판나코타.jpg
+PRODUCT|흑당 판나코타|3400|image/cafe2/흑당 판나코타.jpg
+PRODUCT|햄치즈 샌드위치|6500|image/cafe2/햄치즈 샌드위치.jpg
+PRODUCT|에그포테이토 샌드위치|5800|image/cafe2/에그포테이토 샌드위치.jpg
+PRODUCT|직화불고기 샌드위치|6900|image/cafe2/직화불고기 샌드위치.jpg
+PRODUCT|핫치킨 샌드위치|6900|image/cafe2/핫치킨 샌드위치.jpg
 CATEGORY|COFFE
-PRODUCT|아메리카노|2000|
-PRODUCT|디카페인 아메리카노|3100|
-PRODUCT|헤이즐넛|2500|
-PRODUCT|카페라떼|2900|
-PRODUCT|카푸치노|2900|
-PRODUCT|카페라떼(바닐라)|3400|
-PRODUCT|카페라떼(헤이즐넛)|3400|
-PRODUCT|카페모카(다크)|3900|
-PRODUCT|카라멜마끼아또|3700|
-PRODUCT|아인슈패너|3500|
-PRODUCT|아인슈패너 라떼|4000|
-PRODUCT|흑당라떼|3900|
-PRODUCT|연유라떼|3900|
-PRODUCT|콜드브루|3500|
-PRODUCT|콜드브루 라떼|4000|
+PRODUCT|아메리카노|2000|image/cafe2/아메리카노.jpg
+PRODUCT|디카페인 아메리카노|3100|image/cafe2/디카페인 아메리카노.jpg
+PRODUCT|헤이즐넛|2500|image/cafe2/헤이즐넛.jpg
+PRODUCT|카페라떼|2900|image/cafe2/카페라떼.jpg
+PRODUCT|카푸치노|2900|image/cafe2/카푸치노.jpg
+PRODUCT|카페라떼(바닐라)|3400|image/cafe2/카페라떼(바닐라).jpg
+PRODUCT|카페라떼(헤이즐넛)|3400|image/cafe2/카페라떼(헤이즐넛).jpg
+PRODUCT|카페모카(다크)|3900|image/cafe2/카페모카(다크).jpg
+PRODUCT|카라멜마끼아또|3700|image/cafe2/카라멜마끼아또.jpg
+PRODUCT|아인슈패너|3500|image/cafe2/아인슈패너.jpg
+PRODUCT|아인슈패너 라떼|4000|image/cafe2/아인슈패너 라떼.jpg
+PRODUCT|흑당라떼|3900|image/cafe2/흑당라떼.jpg
+PRODUCT|연유라떼|3900|image/cafe2/연유라떼.jpg
+PRODUCT|콜드브루|3500|image/cafe2/콜드브루.jpg
+PRODUCT|콜드브루 라떼|4000|image/cafe2/콜드브루 라떼.jpg
 CATEGORY|LATTE
-PRODUCT|뚱바라떼|3500|
-PRODUCT|초콜릿(다크)|3500|
-PRODUCT|제주산 말차라떼|3500|
-PRODUCT|고구마 라떼|3700|
-PRODUCT|민트초코라떼|3700|
-PRODUCT|바닐라 죠리퐁라떼|4100|
-PRODUCT|딸기 죠리퐁라떼|4100|
-PRODUCT|로얄밀크티|3700|
-PRODUCT|미숫가루|3200|
-PRODUCT|딸기라떼|3700|
-PRODUCT|흑당밀크티|4200|
-PRODUCT|티라미수라떼|4100|
-PRODUCT|흑임자밀크티|4100|
-PRODUCT|누텔라라떼|3300|
+PRODUCT|뚱바라떼|3500|image/cafe2/뚱바라떼.jpg
+PRODUCT|초콜릿(다크)|3500|image/cafe2/초콜릿(다크).jpg
+PRODUCT|제주산 말차라떼|3500|image/cafe2/제주산 말차라떼.jpg
+PRODUCT|고구마 라떼|3700|image/cafe2/고구마 라떼.jpg
+PRODUCT|민트초코라떼|3700|image/cafe2/민트초코라떼.jpg
+PRODUCT|바닐라 죠리퐁라떼|4100|image/cafe2/바닐라 죠리퐁라떼.jpg
+PRODUCT|딸기 죠리퐁라떼|4100|image/cafe2/딸기 죠리퐁라떼.jpg
+PRODUCT|로얄밀크티|3700|image/cafe2/로얄밀크티.jpg
+PRODUCT|미숫가루|3200|image/cafe2/미숫가루.jpg
+PRODUCT|딸기라떼|3700|image/cafe2/딸기라떼.jpg
+PRODUCT|흑당밀크티|4200|image/cafe2/흑당밀크티.jpg
+PRODUCT|티라미수라떼|4100|image/cafe2/티라미수라떼.jpg
+PRODUCT|흑임자밀크티|4100|image/cafe2/흑임자밀크티.jpg
+PRODUCT|누텔라라떼|3300|image/cafe2/누텔라라떼.jpg
 CATEGORY|TEA
-PRODUCT|제로자몽허니블랙티|3300|
-PRODUCT|제로피치우롱티|2700|
-PRODUCT|캐모마일|2700|
-PRODUCT|자스민|2700|
-PRODUCT|로즈마리|2700|
-PRODUCT|페퍼민트|2700|
-PRODUCT|잉글리쉬블랙퍼스트|2700|
-PRODUCT|얼그레이|2700|
-PRODUCT|다즐링|2700|
-PRODUCT|피치 아이스티|2800|image/cafe2th/icetea.jpeg
-PRODUCT|유자차|3300|
-PRODUCT|자몽차|3300|
-PRODUCT|레몬차|3300|
-PRODUCT|하비스커스|2700|
-PRODUCT|녹차|2700|
+PRODUCT|제로자몽허니블랙티|3300|image/cafe2/제로자몽허니블랙티.jpg
+PRODUCT|제로피치우롱티|2700|image/cafe2/제로피치우롱티.jpg
+PRODUCT|캐모마일|2700|image/cafe2/캐모마일.jpg
+PRODUCT|자스민|2700|image/cafe2/자스민.jpg
+PRODUCT|로즈마리|2700|image/cafe2/로즈마리.jpg
+PRODUCT|페퍼민트|2700|image/cafe2/페퍼민트 차.jpg
+PRODUCT|잉글리쉬블랙퍼스트|2700|image/cafe2/잉글리쉬블랙퍼스트.jpg
+PRODUCT|얼그레이|2700|image/cafe2/얼그레이.jpg
+PRODUCT|다즐링|2700|image/cafe2/다즐링.jpg
+PRODUCT|피치 아이스티|2800|image/cafe2/피치 아이스티.jpg
+PRODUCT|유자차|3300|image/cafe2/유자차.jpg
+PRODUCT|자몽차|3300|image/cafe2/자몽차.jpg
+PRODUCT|레몬차|3300|image/cafe2/레몬차.jpg
+PRODUCT|하비스커스|2700|image/cafe2/하비스커스.jpg
+PRODUCT|녹차|2700|image/cafe2/녹차.jpg
 CATEGORY|ADE/SMOOTHIE/FRAPPE
-PRODUCT|레몬에이드|3800|
-PRODUCT|자몽에이드|3800|
-PRODUCT|청포도에이드|3800|
-PRODUCT|블루레몬에이드|3800|
-PRODUCT|한라봉프리미엄에이드|3800|
-PRODUCT|요거트스무디(플레인)|4100|
-PRODUCT|요거트스무디(딸기)|4100|
-PRODUCT|요거트스무디(블루베리)|4100|
-PRODUCT|요거트스무디(망고)|4100|
-PRODUCT|프라페(모카)|4700|
-PRODUCT|프라페(자바칩)|4200|
-PRODUCT|프라페(민트초코)|4200|
-PRODUCT|프라페(쿠앤크)|4200|
-PRODUCT|프라페(제주산 말차)|4200|
-PRODUCT|프라페(바닐라)|4200|
-PRODUCT|쉑쉑 밀크쉐이크|4200|
-PRODUCT|블랙카카오 프라페|4700|
-PRODUCT|코코넛 커피스무디|4700|
+PRODUCT|레몬에이드|3800|image/cafe2/레몬에이드.jpg
+PRODUCT|자몽에이드|3800|image/cafe2/자몽에이드.jpg
+PRODUCT|청포도에이드|3800|image/cafe2/청포도에이드.jpg
+PRODUCT|블루레몬에이드|3800|image/cafe2/블루레몬에이드.jpg
+PRODUCT|한라봉프리미엄에이드|3800|image/cafe2/한라봉프리미엄에이드.jpg
+PRODUCT|요거트스무디(플레인)|4100|image/cafe2/요거트스무디(플레인).jpg
+PRODUCT|요거트스무디(딸기)|4100|image/cafe2/요거트스무디(딸기).jpg
+PRODUCT|요거트스무디(블루베리)|4100|image/cafe2/요거트스무디(블루베리).jpg
+PRODUCT|요거트스무디(망고)|4100|image/cafe2/요거트스무디(망고).jpg
+PRODUCT|프라페(모카)|4700|image/cafe2/프라페(모카).jpg
+PRODUCT|프라페(자바칩)|4200|image/cafe2/프라페(자바칩).jpg
+PRODUCT|프라페(민트초코)|4200|image/cafe2/프라페(민트초코).jpg
+PRODUCT|프라페(쿠앤크)|4200|image/cafe2/프라페(쿠앤크).jpg
+PRODUCT|프라페(제주산 말차)|4200|image/cafe2/프라페(제주산 말차).jpg
+PRODUCT|프라페(바닐라)|4200|image/cafe2/프라페(바닐라).jpg
+PRODUCT|쉑쉑 밀크쉐이크|4200|image/cafe2/쉑쉑 밀크쉐이크.jpg
+PRODUCT|블랙카카오 프라페|4700|image/cafe2/블랙카카오 프라페.jpg
+PRODUCT|코코넛 커피스무디|4700|image/cafe2/코코넛 커피스무디.jpg
 CATEGORY|JUICE
-PRODUCT|딸기주스|4000|
-PRODUCT|바나나주스|4000|
-PRODUCT|키위주스|4000|
-PRODUCT|딸기바나나주스|4000|
-PRODUCT|초코바나나주스|4000|
-PRODUCT|키위바나나주스|4000|
+PRODUCT|딸기주스|4000|image/cafe2/딸기주스.jpg
+PRODUCT|바나나주스|4000|image/cafe2/바나나주스.jpg
+PRODUCT|키위주스|4000|image/cafe2/키위주스.jpg
+PRODUCT|딸기바나나주스|4000|image/cafe2/딸기바나나주스.jpg
+PRODUCT|초코바나나주스|4000|image/cafe2/초코바나나주스.jpg
+PRODUCT|키위바나나주스|4000|image/cafe2/키위바나나주스.jpg
 CATEGORY|베이커리&간편식
-PRODUCT|국물 컵떡볶이|4200|
-PRODUCT|퀘사디아|4200|
-PRODUCT|초콜릿청크 쿠키|1800|
-PRODUCT|마카다미아 쿠키|1800|
-PRODUCT|휘낭시애(플레인)|1800|
-PRODUCT|휘낭시애(초코피칸)|2500|
-PRODUCT|휘낭시애(솔티드카라멜)|2500|
-PRODUCT|초코칩 머핀|2500|
-PRODUCT|까눌레(바닐라)|2700|
-PRODUCT|까눌레(녹차)|2700|
-PRODUCT|까눌레(모카)|2700|
-PRODUCT|아몬드초코 머핀|2500|
-PRODUCT|베이글(블루베리)|2200|
-PRODUCT|베이글(어니언)|2200|
-PRODUCT|베이글(플레인)|2200|
-PRODUCT|크림치즈 포션|1000|
-PRODUCT|대만쌘|2100|
-PRODUCT|마카롱(딸기)|2800|
-PRODUCT|마카롱(바닐라)|2800|
-PRODUCT|마카롱(다크초코가나슈)|2800|
-PRODUCT|마카롱(인절미)|3000|
-PRODUCT|마카롱(크림브륄래)|3000|
-PRODUCT|크리스피 크룽지|2800|
-PRODUCT|크로크무슈|4000|
-PRODUCT|크림치즈 프레즐|2800|
-PRODUCT|허니브래드|4300|
-PRODUCT|잉글리쉬머핀|4000|
-PRODUCT|카야버터 토스트|3700|
-PRODUCT|햄치즈 토스트|2900|
-PRODUCT|고구마치즈 토스트|2900|
+PRODUCT|국물 컵떡볶이|4200|image/cafe2/국물 컵떡볶이.jpg
+PRODUCT|퀘사디아|4200|image/cafe2/퀘사디아.jpg
+PRODUCT|초콜릿청크 쿠키|1800|image/cafe2/초콜릿청크 쿠키.jpg
+PRODUCT|마카다미아 쿠키|1800|image/cafe2/마카다미아 쿠키.jpg
+PRODUCT|휘낭시애(플레인)|1800|image/cafe2/휘낭시애(플레인).jpg
+PRODUCT|휘낭시애(초코피칸)|2500|image/cafe2/휘낭시애(초코피칸).jpg
+PRODUCT|휘낭시애(솔티드카라멜)|2500|image/cafe2/휘낭시애(솔티드카라멜).jpg
+PRODUCT|초코칩 머핀|2500|image/cafe2/초코칩 머핀.jpg
+PRODUCT|까눌레(바닐라)|2700|image/cafe2/까눌레(바닐라).jpg
+PRODUCT|까눌레(녹차)|2700|image/cafe2/까눌레(녹차).jpg
+PRODUCT|까눌레(모카)|2700|image/cafe2/까눌레(모카).jpg
+PRODUCT|아몬드초코 머핀|2500|image/cafe2/아몬드초코 머핀.jpg
+PRODUCT|베이글(블루베리)|2200|image/cafe2/베이글(블루베리).jpg
+PRODUCT|베이글(어니언)|2200|image/cafe2/베이글(어니언).jpg
+PRODUCT|베이글(플레인)|2200|image/cafe2/베이글(플레인).jpg
+PRODUCT|크림치즈 포션|1000|image/cafe2/크림치즈 포션.jpg
+PRODUCT|대만쌘|2100|image/cafe2/대만쌘.jpg
+PRODUCT|마카롱(딸기)|2800|image/cafe2/마카롱(딸기).jpg
+PRODUCT|마카롱(바닐라)|2800|image/cafe2/마카롱(바닐라).jpg
+PRODUCT|마카롱(다크초코가나슈)|2800|image/cafe2/마카롱(다크초코가니슈).jpg
+PRODUCT|마카롱(인절미)|3000|image/cafe2/마카롱(인절미).jpg
+PRODUCT|마카롱(크림브륄래)|3000|image/cafe2/마카롱(크림브륄래).jpg
+PRODUCT|크리스피 크룽지|2800|image/cafe2/크리스피 크룽지.jpg
+PRODUCT|크로크무슈|4000|image/cafe2/크로크무슈.jpg
+PRODUCT|크림치즈 프레즐|2800|image/cafe2/크림치즈 프레즐.jpg
+PRODUCT|허니브래드|4300|image/cafe2/허니브래드.jpg
+PRODUCT|잉글리쉬머핀|4000|image/cafe2/잉글리쉬머핀.jpg
+PRODUCT|카야버터 토스트|3700|image/cafe2/카야버터 토스트.jpg
+PRODUCT|햄치즈 토스트|2900|image/cafe2/햄치즈 토스트.jpg
+PRODUCT|고구마치즈 토스트|2900|image/cafe2/고구마치즈  토스트.jpg

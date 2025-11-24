@@ -1,19 +1,27 @@
 package mainpage;
 
-import java.io.BufferedReader; 
-import java.io.File;           
-import java.io.FileReader;     
-import java.io.IOException;    
-import java.util.ArrayList;    
-import java.util.List;       
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets; // 인코딩 상수를 사용하기 위한 import (권장)
+import java.util.ArrayList;
+import java.util.List;
 
-// 프로그램 시작 시 필요한 초기 데이터(가게, 메뉴, 상품)를 외부 파일(`.txt`)로부터 읽어 자바 객체( Store, Menu, Product )로 변환 
+/**
+ * 프로그램 시작 시 필요한 초기 데이터(가게, 메뉴, 상품)를 외부 파일(.txt)로부터 읽어
+ * 자바 객체(Store, Menu, Product)로 변환하는 클래스입니다.
+ * * 수정 사항:
+ * - FileReader 대신 InputStreamReader를 사용하여 UTF-8 인코딩을 명시적으로 지정함.
+ * - 문자열 "UTF-8" 대신 StandardCharsets.UTF_8 상수를 사용하여 안정성 확보.
+ */
 public class DataLoader {
     
     // 가게/메뉴 데이터 파일이 위치한 디렉토리 이름을 상수로 정의
     private static final String MENU_DATA_DIRECTORY = "menuData";
 
-    // 모든 `.txt` 파일을 읽어들여 객체의 리스트를 생성하여 반환합니다. (List<Store>)
+    // 모든 .txt 파일을 읽어들여 객체의 리스트를 생성하여 반환합니다. (List<Store>)
     public List<Store> loadStores() {
         List<Store> stores = new ArrayList<>();
         
@@ -28,12 +36,17 @@ public class DataLoader {
 
         for (File file : files) {
             
-            // 실제 '파일'이며(디렉토리가 아니고) 이름이 '.txt'로 끝나는지 확인 (예: .DS_Store 같은 시스템 파일을 무시하기 위함)   
+            // 실제 '파일'이며(디렉토리가 아니고) 이름이 '.txt'로 끝나는지 확인
             if (file.isFile() && file.getName().endsWith(".txt")) {
-                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                
+                // [수정됨] FileReader 대신 FileInputStream과 InputStreamReader를 조합하여 사용
+                // 인코딩을 "UTF-8"로 명시하여 한글 깨짐 방지
+                try (BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
                     
                     String firstLine = reader.readLine();
                     
+                    // 파일이 비어있거나 첫 줄이 없는 경우 방어 코드 추가
                     if (firstLine == null || !firstLine.startsWith("STORE")) {
                         System.err.println("오류: '" + file.getName() + "' 파일의 형식이 잘못되었습니다. (STORE 정보 누락)");
                         continue;
@@ -58,8 +71,7 @@ public class DataLoader {
                     while ((line = reader.readLine()) != null) {
                         
                         // '|' 기준으로 줄을 파싱합니다.
-                        // limit 인자로 -1을 주어 "a|b||d" 같은 경우
-                        // [a, b, "", d] 처럼 빈 문자열도 보존합니다. (이미지 경로가 없을 때 유용)
+                        // limit 인자로 -1을 주어 빈 문자열도 보존합니다.
                         String[] parts = line.split("\\|", -1);
                         if (parts.length < 2) continue; // 최소 2개 파트(타입, 이름)가 없으면 무시
                         
@@ -69,19 +81,25 @@ public class DataLoader {
                             currentMenu = new Menu(parts[1]);
                             store.addMenu(currentMenu);
                             
-                        // 20. 'PRODUCT' 라인을 만났을 때
+                        // 'PRODUCT' 라인을 만났을 때
                         } else if ("PRODUCT".equals(type) && currentMenu != null) {
                             
-                            if (parts.length < 3) continue; // 상품은 최소 3개 파트(타입, 이름, 가격) 필요
+                            if (parts.length < 3) continue; // 상품은 최소 3개 파트 필요
                             
-                            // 22. 상품 정보 파싱
+                            // 상품 정보 파싱
                             String name = parts[1];
-                            int price = Integer.parseInt(parts[2]); // 문자열 -> 정수
+                            int price = 0;
+                            try {
+                                price = Integer.parseInt(parts[2]); // 문자열 -> 정수
+                            } catch (NumberFormatException e) {
+                                System.err.println("가격 형식 오류 (" + file.getName() + "): " + parts[2]);
+                                continue;
+                            }
+                            
                             String imagePath = ""; // 기본값은 빈 문자열
                             
                             // 이미지 경로(선택적) 파싱
-                            // 파트가 4개이고(경로가 존재하고), 그 내용이 비어있지 않으면 읽음
-                            if (parts.length == 4 && !parts[3].isEmpty()) {
+                            if (parts.length >= 4 && !parts[3].isEmpty()) {
                                 imagePath = parts[3];
                             }
                             currentMenu.addProduct(new Product(name, price, imagePath));
@@ -89,8 +107,11 @@ public class DataLoader {
                     }
                     stores.add(store);
 
-                } catch (IOException | NumberFormatException e) {
-                    System.err.println("파일 처리 중 오류 발생: " + file.getName());
+                } catch (IOException e) {
+                    System.err.println("파일 처리 중 IO 오류 발생: " + file.getName());
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    System.err.println("파일 처리 중 알 수 없는 오류 발생: " + file.getName());
                     e.printStackTrace();
                 }
             }

@@ -1,116 +1,116 @@
 STORE|E스퀘어|Gee
 CATEGORY|COFFEE
-PRODUCT|에스프레소|1800|image/cafe4/에스프레소.png
-PRODUCT|H아메리카노|2400|image/cafe4/H아메리카노.png
-PRODUCT|I아메리카노|2700|image/cafe4/I아메리카노.jpg
-PRODUCT|H디카페인 아메|2900|image/cafe4/H디카페인 아메.jpg
-PRODUCT|I디카페인 아메|3200|image/cafe4/I디카페인 아메.jpg
-PRODUCT|H헤이즐넛 아메|2800|image/cafe4/H헤이즐넛 아메.jpg
-PRODUCT|I헤이즐넛 아메|3100|image/cafe4/I헤이즐넛 아메.jpg
-PRODUCT|H카페라떼|3100|image/cafe4/H카페라떼.jpg
-PRODUCT|I카페라떼|3400|image/cafe4/I카페라떼.jpg
-PRODUCT|H바닐라 카페라떼|3500|image/cafe4/.jpg
-PRODUCT|I바닐라 카페라떼|3800|
-PRODUCT|H카라멜 카페라떼|3500|
-PRODUCT|I카라멜 카페라떼|3800|
-PRODUCT|I헤이즐넛 카페라떼|3500|
-PRODUCT|I헤이즐넛 카페라떼|3800|
-PRODUCT|H카푸치노|3200|
-PRODUCT|I카푸치노|3500|
-PRODUCT|H카페모카|3900|
-PRODUCT|I카페모카|4200|
-PRODUCT|H카라멜마끼아또|3900|
-PRODUCT|I카라멜마끼아또|4200|
-PRODUCT|아이스크림라떼|4100|
-PRODUCT|콜드브루|3400|
-PRODUCT|콜드브루라떼|4000|
+PRODUCT|에스프레소|1800|image/cafe4/에스프레소.jpg
+PRODUCT|H아메리카노|2400|image/cafe4/H아메리카노.jpg
+PRODUCT|I아메리카노|2700|image/cafe4/I아메리카노.jpg
+PRODUCT|H디카페인 아메|2900|image/cafe4/H디카페인 아메.jpg
+PRODUCT|I디카페인 아메|3200|image/cafe4/I디카페인 아메.jpg
+PRODUCT|H헤이즐넛 아메|2800|image/cafe4/H헤이즐넛 아메.jpg
+PRODUCT|I헤이즐넛 아메|3100|image/cafe4/I헤이즐넛 아메.jpg
+PRODUCT|H카페라떼|3100|image/cafe4/H카페라떼.jpg
+PRODUCT|I카페라떼|3400|image/cafe4/I카페라떼.jpg
+PRODUCT|H바닐라 카페라떼|3500|image/cafe4/H바닐라 카페라떼.jpg
+PRODUCT|I바닐라 카페라떼|3800|image/cafe4/I바닐라 카페라떼.jpg
+PRODUCT|H카라멜 카페라떼|3500|image/cafe4/H카라멜 카페라떼.jpg
+PRODUCT|I카라멜 카페라떼|3800|image/cafe4/I카라멜 카페라떼.jpg
+PRODUCT|I헤이즐넛 카페라떼(숏)|3500|image/cafe4/I헤이즐넛 카페라떼(숏).jpg
+PRODUCT|I헤이즐넛 카페라떼(롱)|3800|image/cafe4/I헤이즐넛 카페라떼(롱).jpg
+PRODUCT|H카푸치노|3200|image/cafe4/H카푸치노.jpg
+PRODUCT|I카푸치노|3500|image/cafe4/I카푸치노.jpg
+PRODUCT|H카페모카|3900|image/cafe4/H카페모카.jpg
+PRODUCT|I카페모카|4200|image/cafe4/I카페모카.jpg
+PRODUCT|H카라멜마끼아또|3900|image/cafe4/H카라멜마끼아또.jpg
+PRODUCT|I카라멜마끼아또|4200|image/cafe4/I카라멜마끼아또.jpg
+PRODUCT|아이스크림라떼|4100|image/cafe4/아이스크림라떼.jpg
+PRODUCT|콜드브루|3400|image/cafe4/콜드브루.jpg
+PRODUCT|콜드브루라떼|4000|image/cafe4/콜드브루라떼.jpg
 
 CATEGORY|LATTE
-PRODUCT|H 초코라떼|3600|
-PRODUCT|I 초코라떼|3900|
-PRODUCT|H 녹차라떼|3600|/KioskProject/image/cafe4/H 녹차라떼.jpg
-PRODUCT|I 녹차라떼|3900|
-PRODUCT|I 아이스크림 초콜릿라떼|4500|
-PRODUCT|H 토피넛 라떼|3800|
-PRODUCT|I 토피넛 라떼|4100|
-PRODUCT|딸기라떼|4000|
-PRODUCT|리얼망고라떼|4200|
-PRODUCT|리얼블루베리라떼|4200|
-PRODUCT|우유|2500|
+PRODUCT|H 초코라떼|3600|image/cafe4/H 초코라떼.jpg
+PRODUCT|I 초코라떼|3900|image/cafe4/I 초코라떼.jpg
+PRODUCT|H 녹차라떼|3600|image/cafe4/H 녹차라떼.jpg
+PRODUCT|I 녹차라떼|3900|image/cafe4/I 녹차라떼.jpg
+PRODUCT|I 아이스크림 초콜릿라떼|4500|image/cafe4/I 아이스크림 초콜릿라떼.jpg
+PRODUCT|H 토피넛 라떼|3800|image/cafe4/H 토피넛 라떼.jpg
+PRODUCT|I 토피넛 라떼|4100|image/cafe4/I 토피넛 라떼.jpg
+PRODUCT|딸기라떼|4000|image/cafe4/딸기라떼.jpg
+PRODUCT|리얼망고라떼|4200|image/cafe4/리얼망고라떼.jpg
+PRODUCT|리얼블루베리라떼|4200|image/cafe4/리얼블루베리라떼.jpg
+PRODUCT|우유|2500|image/cafe4/우유.jpg
 
 CATEGORY|FRAPPE&SHAKE
-PRODUCT|초코릿 프라페|3900|
-PRODUCT|녹차 프라페|4000|
-PRODUCT|요거트 프라페|4000|
-PRODUCT|딸기요거트프라페|4200|
-PRODUCT|망고요거트프라페|4500|
-PRODUCT|블루베리요거트프라페|4500|
-PRODUCT|조리퐁 쉐이크|4500|
-PRODUCT|오레오 쉐이크|4500|
-PRODUCT|코코블초코쉐이크|4500|
+PRODUCT|초코릿 프라페|3900|image/cafe4/초코릿 프라페.jpg
+PRODUCT|녹차 프라페|4000|image/cafe4/녹차 프라페.jpg
+PRODUCT|요거트 프라페|4000|image/cafe4/요거트 프라페.jpg
+PRODUCT|딸기요거트프라페|4200|image/cafe4/딸기요거트프라페.jpg
+PRODUCT|망고요거트프라페|4500|image/cafe4/망고요거트프라페.jpg
+PRODUCT|블루베리요거트프라페|4500|image/cafe4/블루베리요거트프라페.jpg
+PRODUCT|조리퐁 쉐이크|4500|image/cafe4/조리퐁 쉐이크.jpg
+PRODUCT|오레오 쉐이크|4500|image/cafe4/오레오 쉐이크.jpg
+PRODUCT|코코볼초코쉐이크|4500|image/cafe4/코코볼초코쉐이크.jpg
 
 CATEGORY|MILK TEA&BUBBLE LATTE
-PRODUCT|숙성밀크티|4500|
-PRODUCT|흑당 버블 라떼|4500|
-PRODUCT|흑당 버블 카페라떼|4800|
+PRODUCT|숙성밀크티|4500|image/cafe4/숙성밀크티.jpg
+PRODUCT|흑당 버블 라떼|4500|image/cafe4/흑당 버블 라떼.jpg
+PRODUCT|흑당 버블 카페라떼|4800|image/cafe4/흑당 버블 카페라떼.jpg
 
 CATEGORY|SMALL SIZE
-PRODUCT|H 숏 아메리카노|1800|
-PRODUCT|I 숏 아메리카노|2100|
-PRODUCT|H 숏 카페라떼|2400|
-PRODUCT|I 숏 카페라떼|2700|
+PRODUCT|H 숏 아메리카노|1800|image/cafe4/H 숏 아메리카노.jpg
+PRODUCT|I 숏 아메리카노|2100|image/cafe4/I 숏 아메리카노.jpg
+PRODUCT|H 숏 카페라떼|2400|image/cafe4/H 숏 카페라떼.jpg
+PRODUCT|I 숏 카페라떼|2700|image/cafe4/I 숏 카페라떼.jpg
 
 CATEGORY|ADD&ICE TEA
-PRODUCT|복숭아 아이스티|2900|
-PRODUCT|레몬아이스티|2900|
-PRODUCT|자두에이드|3700|
-PRODUCT|레몬에이드|3900|
-PRODUCT|자몽에이드|3900|
-PRODUCT|딸기에이드|3900|
-PRODUCT|리얼망고에이드|4200|
+PRODUCT|복숭아 아이스티|2900|image/cafe4/복숭아 아이스티.jpg
+PRODUCT|레몬아이스티|2900|image/cafe4/레몬아이스티.jpg
+PRODUCT|자두에이드|3700|image/cafe4/자두에이드.jpg
+PRODUCT|레몬에이드|3900|image/cafe4/레몬에이드.jpg
+PRODUCT|자몽에이드|3900|image/cafe4/자몽에이드.jpg
+PRODUCT|딸기에이드|3900|image/cafe4/딸기에이드.jpg
+PRODUCT|리얼망고에이드|4200|image/cafe4/리얼망고에이드.jpg
 
 CATEGORY|JUICE
-PRODUCT|딸기주스|4000|
-PRODUCT|망고주스|4100|
-PRODUCT|블루베리주스|4300|
+PRODUCT|딸기주스|4000|image/cafe4/딸기주스.jpg
+PRODUCT|망고주스|4100|image/cafe4/망고주스.jpg
+PRODUCT|블루베리주스|4300|image/cafe4/블루베리주스.jpg
 
 CATEGORY|TEA
-PRODUCT|H 유자차|3300|
-PRODUCT|I 유자차|3600|
-PRODUCT|H 레몬차|3400|
-PRODUCT|I 레몬차|3700|
-PRODUCT|H 자몽차|3400|
-PRODUCT|I 자몽차|3700|
-PRODUCT|H 얼그레이티|3400|
-PRODUCT|I 얼그레이티|3700|
-PRODUCT|H 캐모마일티|3400|
-PRODUCT|I 캐모마일티|3700|
-PRODUCT|H 페퍼민트 루이보스|3400|
-PRODUCT|I 페퍼민트 루이보스|3700|
-PRODUCT|H 텐저린 진저티|3400|
-PRODUCT|I 텐저린 진저티|3700|
-PRODUCT|H 트로피칼 크림슨티|3400|
-PRODUCT|I 트로피칼 크림슨티|3700|
-PRODUCT|H 프리미엄녹차|3700|
-PRODUCT|I 프리미엄녹차|4000|
+PRODUCT|H 유자차|3300|image/cafe4/H 유자차.jpg
+PRODUCT|I 유자차|3600|image/cafe4/I 유자차.jpg
+PRODUCT|H 레몬차|3400|image/cafe4/H 레몬차.jpg
+PRODUCT|I 레몬차|3700|image/cafe4/I 레몬차.jpg
+PRODUCT|H 자몽차|3400|image/cafe4/H 자몽차.jpg
+PRODUCT|I 자몽차|3700|image/cafe4/I 자몽차.jpg
+PRODUCT|H 얼그레이티|3400|image/cafe4/H 얼그레이티.jpg
+PRODUCT|I 얼그레이티|3700|image/cafe4/I 얼그레이티.jpg
+PRODUCT|H 캐모마일티|3400|image/cafe4/H 캐모마일티.jpg
+PRODUCT|I 캐모마일티|3700|image/cafe4/I 캐모마일티.jpg
+PRODUCT|H 페퍼민트 루이보스|3400|image/cafe4/H 페퍼민트 루이보스.jpg
+PRODUCT|I 페퍼민트 루이보스|3700|image/cafe4/I 페퍼민트 루이보스.jpg
+PRODUCT|H 텐저린 진저티|3400|image/cafe4/H 텐저린 진저티.jpg
+PRODUCT|I 텐저린 진저티|3700|image/cafe4/I 텐저린 진저티.jpg
+PRODUCT|H 트로피칼 크림슨티|3400|image/cafe4/H 트로피칼 크림슨티.jpg
+PRODUCT|I 트로피칼 크림슨티|3700|image/cafe4/I 트로피칼 크림슨티.jpg
+PRODUCT|H 프리미엄녹차|3700|image/cafe4/H 프리미엄녹차.jpg
+PRODUCT|I 프리미엄녹차|4000|image/cafe4/I 프리미엄녹차.jpg
 
 CATEGORY|베이커리
-PRODUCT|쿠키박스|1000|
-PRODUCT|더블초코쿠키|2500|
-PRODUCT|말차쿠키|2800|
-PRODUCT|화이트마카다미아쿠키|2800|
-PRODUCT|누텔라쿠키|3000|
-PRODUCT|오레오 쿠키|3200|
-PRODUCT|로투스 쿠키|3200|
-PRODUCT|황치즈 쿠키|3300|
-PRODUCT|약과 쿠키|3400|
-PRODUCT|돼지바 쿠키|3000|
-PRODUCT|티라미수 쿠키|3300|
-PRODUCT|오리지널 휘낭시에|1900|
-PRODUCT|크린베리 치즈 휘낭시에|2100|
-PRODUCT|초코 휘낭시에|2100|
+PRODUCT|쿠키박스|1000|image/cafe4/쿠키박스.jpg
+PRODUCT|더블초코쿠키|2500|image/cafe4/더블초코쿠키.jpg
+PRODUCT|말차쿠키|2800|image/cafe4/말차쿠키.jpg
+PRODUCT|화이트마카다미아쿠키|2800|image/cafe4/화이트마카다미아쿠키.jpg
+PRODUCT|누텔라쿠키|3000|image/cafe4/누텔라쿠키.jpg
+PRODUCT|오레오 쿠키|3200|image/cafe4/오레오 쿠키.jpg
+PRODUCT|로투스 쿠키|3200|image/cafe4/로투스 쿠키.jpg
+PRODUCT|황치즈 쿠키|3300|image/cafe4/황치즈 쿠키.jpg
+PRODUCT|약과 쿠키|3400|image/cafe4/약과 쿠키.jpg
+PRODUCT|돼지바 쿠키|3000|image/cafe4/돼지바 쿠키.jpg
+PRODUCT|티라미수 쿠키|3300|image/cafe4/티라미수 쿠키.jpg
+PRODUCT|오리지널 휘낭시에|1900|image/cafe4/오리지널 휘낭시에.jpg
+PRODUCT|크린베리 치즈 휘낭시에|2100|image/cafe4/크린베리 치즈 휘낭시에.jpg
+PRODUCT|초코 휘낭시에|2100|image/cafe4/초코 휘낭시에.jpg
 
 CATEGORY|ADD
-OPTION|샷추가|500|
-OPTION|버블추가|500|
-OPTION|디카페인으로 변경|500|
+PRODUCT|샷추가|500|
+PRODUCT|버블추가|500|
+PRODUCT|디카페인으로 변경|500|

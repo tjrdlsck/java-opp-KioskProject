@@ -1,0 +1,11 @@
+--- ORDER #1 ---
+Store: E스퀘어
+OrderTime: 2025-11-24 13:59:20
+PickupTime: 14:05
+TotalPrice: 6000
+PaymentMethod: 무통장입금
+Items:
+- H헤이즐넛 아메 | 1개 | 2,800원
+- I디카페인 아메 | 1개 | 3,200원
+--- END ORDER #1 ---
+

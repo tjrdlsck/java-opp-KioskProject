@@ -10,6 +10,7 @@ public class OrderPanel extends JPanel {
     private final Cart cart = new Cart();
     private final JPanel orderListPanel;
     private final JScrollPane scrollPane;
+    private final JLabel totalPriceLabel;
 
     public OrderPanel() {
         setLayout(new BorderLayout());
@@ -29,6 +30,12 @@ public class OrderPanel extends JPanel {
         scrollPane.getViewport().setBackground(Color.WHITE);
 
         add(scrollPane, BorderLayout.CENTER);
+        
+        totalPriceLabel = new JLabel("총 금액: 0원", SwingConstants.RIGHT); // 오른쪽 정렬
+        totalPriceLabel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+        totalPriceLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // 여백 추가
+        
+        add(totalPriceLabel, BorderLayout.SOUTH);
 
     }
 
@@ -75,9 +82,11 @@ public class OrderPanel extends JPanel {
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.insets = new Insets(0, 5, 0, 5);
             gbc.gridy = 0;
-
+            
+            String displayName = String.format("<html>%s <span style='color:gray; font-size:10px;'>[%s]</span></html>", name, product.getStoreName());
+            
             // 메뉴명
-            JLabel nameLabel = new JLabel(name);
+            JLabel nameLabel = new JLabel(displayName);
             nameLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
             nameLabel.setHorizontalAlignment(SwingConstants.LEFT);
             gbc.gridx = 0;
@@ -129,6 +138,10 @@ public class OrderPanel extends JPanel {
         orderListPanel.setPreferredSize(null);
         orderListPanel.revalidate();
         orderListPanel.repaint();
+        updateTotalPriceLabel();
     }
-
+    public void updateTotalPriceLabel() {
+        long total = cart.getTotalPrice(); // long 타입으로 받음
+        totalPriceLabel.setText(String.format("총 금액: %,d원", total));
+    }
 }

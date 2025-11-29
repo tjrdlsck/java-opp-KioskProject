@@ -1,3 +1,7 @@
 /bin/
 readme_past.txt
-
+plan.md
+report.md
+test.puml
+order_sequence.txt
+saved_orders/*.txt

@@ -101,7 +101,7 @@ public class DataLoader {
                             if (parts.length >= 4 && !parts[3].isEmpty()) {
                                 imagePath = parts[3];
                             }
-                            currentMenu.addProduct(new Product(name, price, imagePath));
+                            currentMenu.addProduct(new Product(name, price, imagePath, storeName));
                         }
                     }
                     stores.add(store);

@@ -63,10 +63,11 @@ public class CartFileManager {
             for (CartItem item : items) {
                 Product product = item.getProduct();
                 
-                writer.printf("%s|%d|%s|%d\n",
+                writer.printf("%s|%d|%s|%s|%d\n",
                         product.getName(),        
                         product.getPrice(),       
-                        product.getImagePath(),   
+                        product.getImagePath(),
+                        product.getStoreName(),   // [추가됨]
                         item.getQuantity());      
             }
             
@@ -134,13 +135,14 @@ public class CartFileManager {
                     //    배열에 빈 문자열("")로 포함시켜, 항상 일관된 배열 크기를 갖도록 보장합니다.
                     String[] parts = line.split("\\|", -1);
                     
-                    if (parts.length == 4) {
-                        
+                    if (parts.length >= 5) {
                         String name = parts[0];
                         int price = Integer.parseInt(parts[1]);
                         String imagePath = parts[2];
-                        int quantity = Integer.parseInt(parts[3]);
-                        Product product = new Product(name, price, imagePath);
+                        String storeName = parts[3]; // [추가됨] 가게 이름 파싱
+                        int quantity = Integer.parseInt(parts[4]);
+                     // [수정] Product 생성 시 storeName 전달
+                        Product product = new Product(name, price, imagePath, storeName);
                         
                         // [로직 재사용]
                         // loadedCart의 내부 리스트에 직접 CartItem을 추가하는 대신, 'Cart' 클래스가 이미 가지고 있는 'addProduct' 메소드를 'quantity' 횟수만큼 호출합니다. 

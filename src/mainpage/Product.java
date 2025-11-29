@@ -18,10 +18,13 @@ public class Product {
     // 상품 이미지 파일의 경로 (빈 경우도 존재) 
     private String imagePath;
 
-    public Product(String name, int price, String imagePath) {
+    private String storeName;
+
+    public Product(String name, int price, String imagePath, String storeName) {
         this.name = name;
         this.price = price;
         this.imagePath = imagePath;
+        this.storeName = storeName; // [추가]
     }
 
     // 상품의 이름을 반환
@@ -37,6 +40,10 @@ public class Product {
     // 상품의 이미지 경로를 반환
     public String getImagePath() {
         return imagePath;
+    }
+    
+    public String getStoreName() {
+        return storeName;
     }
     
     // 이 상품이 유효한 이미지 경로를 가지고 있는지 검사

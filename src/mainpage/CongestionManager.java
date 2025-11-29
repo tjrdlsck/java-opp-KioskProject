@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * 주문 정보를 캐싱하고, 가게별/시간대별 혼잡도를 계산하는 클래스입니다.
- */
+// 주문 정보를 캐싱하고, 가게별/시간대별 혼잡도를 계산하는 클래스
 public class CongestionManager {
 
     private final OrderFileManager orderFileManager;
@@ -20,17 +18,13 @@ public class CongestionManager {
         refreshCache(); // 생성 시 한 번 캐시를 로드합니다.
     }
 
-    /**
-     * 파일에서 최신 주문 정보를 다시 읽어와 내부 캐시를 갱신합니다.
-     */
+    // 파일에서 최신 주문 정보를 다시 읽어와 내부 캐시를 갱신
     public void refreshCache() {
         this.orderCache = orderFileManager.getTodaysOrderInfo();
         System.out.println("혼잡도 관리자: 캐시를 갱신했습니다. 현재 주문 " + orderCache.size() + "건");
     }
 
-    /**
-     * 특정 가게의 현재 시간 기준 15분 내 픽업 예정인 주문 건수를 반환합니다.
-     */
+    // 특정 가게의 현재 시간 기준 15분 내 픽업 예정인 주문 건수를 반환
     public long getCongestionForNext10Min(String storeName) {
         LocalTime now = LocalTime.now();
         LocalTime tenMinutesLater = now.plusMinutes(10);
@@ -44,10 +38,7 @@ public class CongestionManager {
                 .count();
     }
 
-    /**
-     * [v6] 특정 가게의, 현재 시간부터 시작하는 1시간 동안의 15분 단위 시간대별 주문 건수 목록을 반환합니다.
-     * 항상 4개의 시간대 슬롯을 반환하며, 주문이 없으면 0으로 표시됩니다.
-     */
+    // 특정 가게의, 현재 시간부터 시작하는 1시간 동안의 15분 단위 시간대별 주문 건수 목록을 반환합니다. 항상 4개의 시간대 슬롯을 반환하며, 주문이 없으면 0으로 표시됩니다.
     public Map<LocalTime, Long> getCongestionByTimeSlots(String storeName) {
         Map<LocalTime, Long> slotMap = new java.util.LinkedHashMap<>();
         LocalTime now = LocalTime.now();
@@ -81,12 +72,7 @@ public class CongestionManager {
         return slotMap;
     }
 
-    /**
-     * [v3] 특정 가게의, 특정 시간부터 시작하는 5분 구간의 주문 건수를 반환합니다.
-     * @param storeName 가게 이름
-     * @param startTime 기준 시간
-     * @return 해당 5분 구간 내의 주문 건수
-     */
+    // 특정 가게의, 특정 시간부터 시작하는 5분 구간의 주문 건수를 반환
     public long getCongestionFor5MinSlot(String storeName, LocalTime startTime) {
         LocalTime endTime = startTime.plusMinutes(5);
 

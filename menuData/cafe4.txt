@@ -1,4 +1,4 @@
-STORE|E스퀘어|Gee
+STORE|E스퀘어|카페 Gee|image/cafe4/cafe4.jpg
 CATEGORY|COFFEE
 PRODUCT|에스프레소|1800|image/cafe4/에스프레소.jpg
 PRODUCT|H아메리카노|2400|image/cafe4/H아메리카노.jpg
@@ -111,6 +111,6 @@ PRODUCT|크린베리 치즈 휘낭시에|2100|image/cafe4/크린베�
 PRODUCT|초코 휘낭시에|2100|image/cafe4/초코 휘낭시에.jpg
 
 CATEGORY|ADD
-PRODUCT|샷추가|500|
-PRODUCT|버블추가|500|
-PRODUCT|디카페인으로 변경|500|
+PRODUCT|샷추가|500|image/cafe4/샷추가.jpg
+PRODUCT|버블추가|500|image/cafe4/버블추가.jpg
+PRODUCT|디카페인으로 변경|500|image/cafe4/디카페인으로 변경.jpg

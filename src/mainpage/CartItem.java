@@ -25,7 +25,7 @@ public class CartItem {
     }
 
     // 수량 1 증가 
-    // Cart/addProduct(Product) 메소드에서 이미 장바구니에 존재하는 상품이 또 추가될 때 호출됩니다.
+    // Cart/addProduct(Product) 메소드에서 이미 장바구니에 존재하는 상품이 또 추가될 때 호출
     public void increaseQuantity() {
         this.quantity++;
     }
@@ -39,7 +39,7 @@ public class CartItem {
     
     // (상품 가격 * 수량)의 총액 (long 타입) 반환
     public long getTotalPrice() {
-        // (long) * (int) -> (long) * (long)으로 자동 형 변환되어 연산 결과가 안전하게 long 타입으로 반환됩니다.
+        // (long) * (int) -> (long) * (long)으로 자동 형 변환되어 연산 결과가 안전하게 long 타입으로 반환
         return (long) product.getPrice() * this.quantity;
     }
 }

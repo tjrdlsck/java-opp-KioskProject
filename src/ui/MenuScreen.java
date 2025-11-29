@@ -39,6 +39,9 @@ public class MenuScreen extends JPanel {
 
         JButton leftArrow = createStyledArrowButton("◀");
         JButton rightArrow = createStyledArrowButton("▶");
+        JButton homeButton = createHomeButton();
+
+        homeButton.addActionListener(e -> mainApp.showSelectScreen());
 
         JPanel cafeScrollContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         cafeScrollContainer.setBackground(new Color(230, 230, 230));
@@ -63,9 +66,24 @@ public class MenuScreen extends JPanel {
         leftArrow.addActionListener(e -> scrollCafeList(-150));
         rightArrow.addActionListener(e -> scrollCafeList(150));
 
-        topPanel.add(leftArrow, BorderLayout.WEST);
+        JPanel westPanel = new JPanel(new GridBagLayout());
+        westPanel.setBackground(new Color(230, 230, 230));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(0, 5, 0, 5); // 좌우 여백
+
+        westPanel.add(homeButton, gbc);
+        westPanel.add(leftArrow, gbc);
+
+        topPanel.add(westPanel, BorderLayout.WEST);
         topPanel.add(cafeScroll, BorderLayout.CENTER);
-        topPanel.add(rightArrow, BorderLayout.EAST);
+        JPanel eastPanel = new JPanel(new GridBagLayout());
+        eastPanel.setBackground(new Color(230, 230, 230));
+
+        eastPanel.add(rightArrow);
+
+        topPanel.add(eastPanel, BorderLayout.EAST);
+
 
         add(topPanel, BorderLayout.NORTH);
 
@@ -73,12 +91,12 @@ public class MenuScreen extends JPanel {
         add(cafeMenuPanel, BorderLayout.CENTER);
 
         orderPanel = new OrderPanel();
-        JPanel rightButtons = new JPanel(new GridLayout(2, 2, 10, 10)); // 레이아웃을 2x2로 다시 변경
+        JPanel rightButtons = new JPanel(new GridLayout(2, 2, 10, 10));
         rightButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         JButton saveCartBtn = new JButton("장바구니 저장");
         JButton clearBtn = new JButton("전체삭제");
         JButton loadCartBtn = new JButton("장바구니 불러오기");
-        JButton orderBtn = new JButton("결제하기"); // 다시 "결제하기" 버튼으로 변경
+        JButton orderBtn = new JButton("결제하기");
 
         Font buttonFont = new Font("맑은 고딕", Font.BOLD, 16);
         saveCartBtn.setFont(buttonFont);
@@ -89,7 +107,7 @@ public class MenuScreen extends JPanel {
         rightButtons.add(saveCartBtn);
         rightButtons.add(clearBtn);
         rightButtons.add(loadCartBtn);
-        rightButtons.add(orderBtn); // "결제하기" 버튼 추가
+        rightButtons.add(orderBtn);
 
         JPanel bottomPanel = new JPanel(new GridLayout(1, 2));
         bottomPanel.add(orderPanel);
@@ -100,7 +118,7 @@ public class MenuScreen extends JPanel {
         saveCartBtn.addActionListener(e -> processSaveCart());
         clearBtn.addActionListener(e -> orderPanel.clearOrders());
         loadCartBtn.addActionListener(e -> processLoadCart());
-        orderBtn.addActionListener(e -> processBankTransferOrder()); // "결제하기" 버튼 클릭 시 무통장입금 프로세스 실행
+        orderBtn.addActionListener(e -> processBankTransferOrder());
     }
 
     private void scrollCafeList(int offset) {
@@ -123,12 +141,45 @@ public class MenuScreen extends JPanel {
         btn.setFocusPainted(false);
         btn.setBorder(null);
         btn.setContentAreaFilled(false);
-        Dimension arrowSize = new Dimension(35, 35);
-        btn.setPreferredSize(arrowSize);
         btn.setMargin(new Insets(0, 0, 0, 0));
+        btn.setPreferredSize(new Dimension(40, 40));
+
         return btn;
     }
 
+    private JButton createHomeButton() {
+        JButton btn = new JButton("🏠");
+
+        btn.setFont(new Font("SansSerif", Font.PLAIN, 28));
+
+        // 테두리 추가 (둥근 회색 라인)
+        btn.setBorder(BorderFactory.createLineBorder(new Color(180, 180, 180), 2, true));
+        btn.setBorderPainted(true);
+
+        btn.setContentAreaFilled(false);
+        btn.setFocusPainted(false);
+        btn.setOpaque(false);
+
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        // hover 효과
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                btn.setContentAreaFilled(true);
+                btn.setBackground(new Color(235, 235, 235));
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                btn.setContentAreaFilled(false);
+            }
+        });
+
+        btn.addActionListener(e -> mainApp.showSelectScreen());
+
+        return btn;
+    }
+    
     private String getValidPhoneNumber(String initialMessage) {
         String phoneRegex = "^010\\d{8}$";
         String phone;
@@ -191,8 +242,7 @@ public class MenuScreen extends JPanel {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JComboBox<LocalTime> timeSelector = new JComboBox<>();
-
-        // [v7 수정] 최소 5분 후 픽업 및 시간 정규화 로직
+        
         LocalTime now = LocalTime.now();
         int minute = now.getMinute();
         int remainder = minute % 5;
@@ -212,7 +262,6 @@ public class MenuScreen extends JPanel {
         JLabel congestionLabel = new JLabel("시간을 선택하세요.");
         congestionLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 
-        // [v7 수정] 렌더러에서 상대 시간 제거, 시간만 표시
         timeSelector.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -279,7 +328,6 @@ public class MenuScreen extends JPanel {
         int choice = JOptionPane.showConfirmDialog(this, sb.toString(), "주문 확인", JOptionPane.YES_NO_OPTION);
 
         if (choice == JOptionPane.YES_OPTION) {
-            // 무통장입금 정보 다이얼로그 표시
             Random rand = new Random();
             String accountNumber = String.format("%03d-%06d-%02d-%03d",
                 rand.nextInt(1000),

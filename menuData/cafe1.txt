@@ -1,4 +1,4 @@
-STORE|경슐랭|카페ING
+STORE|경슐랭|카페 ING|image/cafe1/cafe1.jpg
 CATEGORY|SIGNATURE
 PRODUCT|딸기 판나코타|3400|image/cafe1/딸기 판나코타.jpg
 PRODUCT|사과 판나코타|3400|image/cafe1/사과 판나코타.jpg
@@ -14,7 +14,7 @@ PRODUCT|디카페인 아메리카노|3100|image/cafe1/디카페이�
 PRODUCT|헤이즐넛|2500|image/cafe1/헤이즐넛.jpg
 PRODUCT|카페라떼|2900|image/cafe1/카페라떼.jpg
 PRODUCT|카푸치노|2900|image/cafe1/카푸치노.jpg
-PRODUCT|카페라떼(바닐라)|3400|image/cafe1/카페라떼(바닐라).jpg
+PRODUCT|카페라떼(바닐라)|3400|image/cafe1/바닐라 카페라떼.jpg
 PRODUCT|카페라떼(헤이즐넛)|3400|image/cafe1/카페라뗴(헤이즐넛).jpg
 PRODUCT|카페모카(다크)|3900|image/cafe1/카페모카(다크).jpg
 PRODUCT|카라멜마끼아또|3700|image/cafe1/카라멜마끼아또.jpg
@@ -36,7 +36,7 @@ PRODUCT|딸기 죠리퐁라떼|4100|image/cafe1/딸기 죠리ᄑ�
 PRODUCT|로얄밀크티|3700|image/cafe1/로얄 밀크티.jpg
 PRODUCT|미숫가루|3200|image/cafe1/미숫가루.jpg
 PRODUCT|딸기라떼|3700|image/cafe1/딸기라떼.jpg
-PRODUCT|흑당밀크티|4200|
+PRODUCT|흑당밀크티|4200|image/cafe1/흑당라떼.jpg
 PRODUCT|티라미수라떼|4100|image/cafe1/티라미수라떼.jpg
 PRODUCT|흑임자밀크티|4100|image/cafe1/흑임자밀크티.jpg
 PRODUCT|누텔라라떼|3300|image/cafe1/누텔라라떼.jpg
@@ -104,7 +104,7 @@ PRODUCT|휘낭시애(플레인)|1800|image/cafe1/휘낭시애(ᄑ
 PRODUCT|휘낭시애(초코피칸)|2500|image/cafe1/휘낭시애(초코피칸).jpg
 PRODUCT|휘낭시애(솔티드카라멜)|2500|image/cafe1/휘낭시애(솔티드카라멜).jpg
 PRODUCT|초코칩 머핀|2500|image/cafe1/초코칩 머핀.jpg
-PRODUCT|까눌레(바닐라)|2700|image/cafe1/까눌레(바닐라).jpg
+PRODUCT|까눌레(바닐라)|2700|image/cafe1/까눌레(바닐라).jpg
 PRODUCT|까눌레(녹차)|2700|image/cafe1/까눌레(녹차).jpg
 PRODUCT|까눌레(모카)|2700|image/cafe1/까눌레(모카).jpg
 PRODUCT|아몬드초코 머핀|2500|image/cafe1/아몬드초코 머핀.jpg
@@ -117,7 +117,7 @@ PRODUCT|초코무스|4100|image/cafe1/초코무스.jpg
 PRODUCT|치즈케잌|3400|image/cafe1/치즈케잌.jpg
 PRODUCT|티라미수|3400|image/cafe1/티라미수.jpg
 PRODUCT|마카롱(딸기)|2800|image/cafe1/마카롱(딸기).jpg
-PRODUCT|마카롱(바닐라)|2800|
+PRODUCT|마카롱(바닐라)|2800|image/cafe1/마카롱(바닐라).jpg
 PRODUCT|마카롱(다크초코가나슈)|2800|image/cafe1/마카롱(다크초코가나슈).jpg
 PRODUCT|마카롱(인절미)|3000|image/cafe1/마카롱(인절미).jpg
 PRODUCT|마카롱(크림브륄래)|3000|image/cafe1/마카롱(크림브륄래).jpg

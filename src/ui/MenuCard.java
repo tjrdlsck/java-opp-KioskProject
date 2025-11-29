@@ -17,9 +17,7 @@ public class MenuCard extends JPanel {
         setBackground(Color.WHITE);
         setLayout(new BorderLayout());
         
-     // ============================
      // 이미지 영역 (센터 크롭으로 꽉 채움)
-     // ============================
      JPanel imgPanel = new JPanel() {
          Image image = (imagePath != null) ? new ImageIcon(imagePath).getImage() : null;
 
@@ -69,11 +67,7 @@ public class MenuCard extends JPanel {
      imgPanel.setPreferredSize(new Dimension(160, 140));
      imgPanel.setBackground(new Color(230, 230, 230));
 
-
-
-        // ============================
         // 이름 + 가격
-        // ============================
         JPanel textPanel = new JPanel(new BorderLayout());
         textPanel.setBackground(Color.WHITE);
 

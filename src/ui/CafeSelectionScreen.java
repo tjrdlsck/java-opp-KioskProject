@@ -6,6 +6,7 @@ import mainpage.Store;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalTime;
@@ -51,7 +52,7 @@ public class CafeSelectionScreen extends JPanel {
             int hGap = 24;
             int totalWidth = frameWidth - 40 - (columns - 1) * hGap;
             int cardWidth = totalWidth / columns;
-            int cardHeight = 220;
+            int cardHeight = 320;
 
             for (Store s : this.stores) {
                 JPanel card = createStoreCard(s);
@@ -63,6 +64,7 @@ public class CafeSelectionScreen extends JPanel {
         }
 
         JScrollPane scroll = new JScrollPane(grid);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.getVerticalScrollBar().setUnitIncrement(16);
         add(scroll, BorderLayout.CENTER);
     }
@@ -75,11 +77,48 @@ public class CafeSelectionScreen extends JPanel {
                 new EmptyBorder(16, 16, 16, 16)
         ));
 
-        JPanel imageArea = new JPanel(new GridBagLayout());
-        imageArea.setPreferredSize(new Dimension(360, 180));
+        JPanel imageArea = new JPanel(new BorderLayout());
+        imageArea.setPreferredSize(new Dimension(480, 240));
         imageArea.setBackground(new Color(250, 250, 250));
         imageArea.setBorder(BorderFactory.createLineBorder(new Color(235, 235, 235)));
-        imageArea.add(new JLabel("(이미지 없음)"));
+        
+        // 이미지 로드 및 표시
+        if (store.getImagePath() != null && !store.getImagePath().isEmpty()) {
+            try {
+                // 프로젝트 루트 기준 절대경로 구성
+                String projectRoot = System.getProperty("user.dir");
+                String imagePath = new java.io.File(projectRoot, store.getImagePath()).getAbsolutePath();
+                
+                System.out.println("Loading image: " + imagePath);
+                System.out.println("File exists: " + new java.io.File(imagePath).exists());
+                
+                ImageIcon imageIcon = new ImageIcon(imagePath);
+                int imgW = imageIcon.getIconWidth();
+                int imgH = imageIcon.getIconHeight();
+                
+                System.out.println("Image size: " + imgW + "x" + imgH);
+                
+                if (imgW > 0 && imgH > 0) {
+                    // 비율 유지하며 480x240에 맞춤
+                    double scale = Math.min(480.0 / imgW, 240.0 / imgH);
+                    int newW = (int)(imgW * scale);
+                    int newH = (int)(imgH * scale);
+                    
+                    Image scaledImage = imageIcon.getImage().getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+                    JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
+                    imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                    imageLabel.setVerticalAlignment(SwingConstants.CENTER);
+                    imageArea.add(imageLabel, BorderLayout.CENTER);
+                } else {
+                    imageArea.add(new JLabel("(이미지 로드 실패)"), BorderLayout.CENTER);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                imageArea.add(new JLabel("(이미지 로드 실패)"), BorderLayout.CENTER);
+            }
+        } else {
+            imageArea.add(new JLabel("(이미지 없음)"), BorderLayout.CENTER);
+        }
 
         JPanel textArea = new JPanel();
         textArea.setLayout(new BoxLayout(textArea, BoxLayout.Y_AXIS));
@@ -179,6 +218,25 @@ public class CafeSelectionScreen extends JPanel {
 
         if (choice == JOptionPane.OK_OPTION) {
             mainApp.showMenuScreen(store);
+        }
+    }
+    
+    // 혼잡도 정보 업데이트 메서드
+    public void updateCongestionLabels() {
+        for (Store store : stores) {
+            JLabel label = congestionLabels.get(store.getName());
+            if (label != null) {
+                long congestion = congestionManager.getCongestionForNext10Min(store.getName());
+                label.setText(" (10분 내: " + congestion + "건)");
+                
+                if (congestion >= 15) {
+                    label.setForeground(Color.RED);
+                } else if (congestion >= 10) {
+                    label.setForeground(new Color(255, 165, 0));
+                } else {
+                    label.setForeground(new Color(0, 128, 0));
+                }
+            }
         }
     }
 }

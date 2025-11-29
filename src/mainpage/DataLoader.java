@@ -9,13 +9,7 @@ import java.nio.charset.StandardCharsets; // 인코딩 상수를 사용하기 �
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 프로그램 시작 시 필요한 초기 데이터(가게, 메뉴, 상품)를 외부 파일(.txt)로부터 읽어
- * 자바 객체(Store, Menu, Product)로 변환하는 클래스입니다.
- * * 수정 사항:
- * - FileReader 대신 InputStreamReader를 사용하여 UTF-8 인코딩을 명시적으로 지정함.
- * - 문자열 "UTF-8" 대신 StandardCharsets.UTF_8 상수를 사용하여 안정성 확보.
- */
+// 프로그램 시작 시 필요한 초기 데이터(가게, 메뉴, 상품)를 외부 파일(.txt)로부터 읽어 자바 객체(Store, Menu, Product)로 변환하는 클래스
 public class DataLoader {
     
     // 가게/메뉴 데이터 파일이 위치한 디렉토리 이름을 상수로 정의
@@ -39,7 +33,6 @@ public class DataLoader {
             // 실제 '파일'이며(디렉토리가 아니고) 이름이 '.txt'로 끝나는지 확인
             if (file.isFile() && file.getName().endsWith(".txt")) {
                 
-                // [수정됨] FileReader 대신 FileInputStream과 InputStreamReader를 조합하여 사용
                 // 인코딩을 "UTF-8"로 명시하여 한글 깨짐 방지
                 try (BufferedReader reader = new BufferedReader(
                         new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
@@ -54,7 +47,6 @@ public class DataLoader {
 
                     String[] storeParts = firstLine.split("\\|");
                     
-
                     // STORE 정보는 최소 3개 파트(STORE, 이름, 설명)가 있어야 함
                     if (storeParts.length < 3) {
                         System.err.println("오류: '" + file.getName() + "' 파일의 STORE 정보가 부족합니다.");
@@ -63,7 +55,14 @@ public class DataLoader {
 
                     String storeName = storeParts[1];
                     String storeDescription = storeParts[2];
-                    Store store = new Store(storeName, storeDescription);
+                    String storeImagePath = ""; // 카페 이미지 경로
+                    
+                    // 선택적으로 카페 이미지 경로 파싱 (4번째 파트)
+                    if (storeParts.length >= 4 && !storeParts[3].isEmpty()) {
+                        storeImagePath = storeParts[3];
+                    }
+                    
+                    Store store = new Store(storeName, storeDescription, storeImagePath);
 
                     String line;
                     Menu currentMenu = null;

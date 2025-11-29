@@ -12,6 +12,8 @@ public class Store {
     // 가게에 대한 간단한 설명
     private String description;
     
+    // 가게의 대표 이미지 경로
+    private String imagePath;
     
     // 이 가게가 보유한 메뉴 카테고리(Menu)의 목록
     private List<Menu> menus;
@@ -19,6 +21,14 @@ public class Store {
     public Store(String name, String description) {
         this.name = name;
         this.description = description;
+        this.imagePath = null;
+        this.menus = new ArrayList<>();
+    }
+    
+    public Store(String name, String description, String imagePath) {
+        this.name = name;
+        this.description = description;
+        this.imagePath = imagePath;
         this.menus = new ArrayList<>();
     }
     
@@ -31,6 +41,16 @@ public class Store {
     // 가게의 설명을 반환
     public String getDescription() {
         return description;
+    }
+
+    // 가게의 대표 이미지 경로를 반환
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    // 가게의 대표 이미지 경로를 설정
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     // 이 가게가 보유한 모든 메뉴 카테고리(Menu)의 리스트를 반환

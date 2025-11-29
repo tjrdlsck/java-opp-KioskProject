@@ -51,6 +51,7 @@ public class MainApplication extends JFrame {
 
     public void showSelectScreen() {
         congestionManager.refreshCache();
+        cafeSelectionScreen.updateCongestionLabels();
         cardLayout.show(mainPanel, SCREEN_SELECT);
     }
 

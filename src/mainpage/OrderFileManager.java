@@ -12,16 +12,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 완료된 주문(Order) 내역을 파일로 관리하는 클래스입니다.
- */
+// 완료된 주문(Order) 내역을 파일로 관리하는 클래스
 public class OrderFileManager {
 
     private static final String ORDER_DATA_DIRECTORY = "saved_orders";
 
-    /**
-     * 혼잡도 계산에 필요한 최소한의 주문 정보를 담는 내부 데이터 클래스(Record)입니다.
-     */
+    // 혼잡도 계산에 필요한 최소한의 주문 정보를 담는 내부 데이터 클래스
     public record OrderInfo(String storeName, LocalTime pickupTime) {}
 
     public OrderFileManager() {
@@ -35,11 +31,7 @@ public class OrderFileManager {
         }
     }
 
-    /**
-     * 완료된 주문 정보를 날짜 기반 파일에 저장(추가)합니다.
-     *
-     * @param order 저장할 Order 객체
-     */
+    // 완료된 주문 정보를 날짜 기반 파일에 저장(추가)
     public void saveOrder(Order order) {
         String fileName = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE) + ".txt";
         File orderFile = new File(ORDER_DATA_DIRECTORY, fileName);
@@ -72,11 +64,7 @@ public class OrderFileManager {
         }
     }
 
-    /**
-     * [신규] 오늘 날짜의 로그 파일에서 모든 주문 정보를 읽어와 리스트로 반환합니다.
-     *
-     * @return 오늘 주문 정보(OrderInfo)가 담긴 리스트
-     */
+    // 오늘 날짜의 로그 파일에서 모든 주문 정보를 읽어와 리스트로 반환
     public List<OrderInfo> getTodaysOrderInfo() {
         String fileName = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE) + ".txt";
         File orderFile = new File(ORDER_DATA_DIRECTORY, fileName);

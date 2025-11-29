@@ -1,4 +1,4 @@
-STORE|2강|카페
+STORE|2강의동|카페 ING|image/cafe2/cafe2.jpg
 CATEGORY|SIGNATURE
 PRODUCT|딸기 판나코타|3400|image/cafe2/딸기 판나코타.jpg
 PRODUCT|사과 판나코타|3400|image/cafe2/사과 판나코타.jpg

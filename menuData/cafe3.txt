@@ -1,4 +1,4 @@
-STORE|중앙도서관|해나
+STORE|중앙도서관|카페 해나|image/cafe3/cafe3.jpg
 CATEGORY|에스프레소 카페인 아이스
 PRODUCT|연한 아메리카노 블루마운틴|1500|image/cafe3/연한 아메리카노 블루마운틴.jpg
 PRODUCT|진한 아메리카노 블루마운틴|1900|image/cafe3/진한 아메리카노 블루마운틴.jpg
@@ -19,7 +19,7 @@ PRODUCT|망고라떼|2500|image/cafe3/망고라떼.jpg
 
 CATEGORY|논 카페인 에이드 음료
 PRODUCT|딥초콜릿|2700|image/cafe3/딥초콜릿.jpg
-PRODUCT|자몽|2500|image/cafe3/자몽.jpg
+PRODUCT|자몽|2500|image/cafe3/자몽라떼.jpg
 PRODUCT|복숭아 아이스티|2500|image/cafe3/복숭아 아이스티 샷추가.jpg
 PRODUCT|에너지드링크|2500|image/cafe3/에너지드링크.jpg
 PRODUCT|오미자|2500|image/cafe3/오미자.jpg

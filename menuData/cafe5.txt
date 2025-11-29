@@ -1,4 +1,4 @@
-STORE|종합강의동|Dictionary
+STORE|종합강의동|카페 Dictionary|image/cafe5/cafe5.jpg
 CATEGORY|커피 (2shot)
 PRODUCT|Hot 아메리카노 마스터_고소|2300|image/cafe5/Hot 아메리카노 마스터_고소.jpg
 PRODUCT|Hot 아메리카노 로스터_신맛|2300|image/cafe5/Hot 아메리카노 로스터_신맛.jpg
@@ -27,8 +27,8 @@ PRODUCT|Ice스페니쉬라떼(연유)|4200|image/cafe5/Ice 스페니ᄉ
 PRODUCT|콜드브루(only Ice)|3400|image/cafe5/콜드브루(only ice).jpg
 PRODUCT|콜드브루 라떼(only Ice)|4000|image/cafe5/콜드브루라떼(only ice).jpg
 PRODUCT|Ice 뚱카노|3700|image/cafe5/Ice뚱카노.jpg
-PRODUCT|샷추가|500|
-PRODUCT|디카페인 원두로 변경|500|
+PRODUCT|샷추가|500|image/cafe5/샷추가.jpg
+PRODUCT|디카페인 원두로 변경|500|image/cafe5/디카페인 원두로 변경.jpg
 
 CATEGORY|신메뉴
 PRODUCT|Hot 오곡라떼(미숫가루)|3800|image/cafe5/Hot 오곡라떼(미숫가루).jpg
@@ -40,7 +40,7 @@ PRODUCT|딸기연유 아이스크림|4400|image/cafe5/딸기연�
 PRODUCT|아이스크림 카페라떼|4800|image/cafe5/아이스크림 카페라떼.jpg
 PRODUCT|아포가토|3200|image/cafe5/아포가토.jpg
 PRODUCT|오레오 아이스크림|3000|image/cafe5/오레오 아이스크림.jpg
-PRODUCT|음료에 아이스크림 추가|1500|
+PRODUCT|음료에 아이스크림 추가|1500|image/cafe5/음료에 아이스크림 추가.jpg
 
 CATEGORY|시그니처
 PRODUCT|로열밀크티|4600|image/cafe5/로열밀크티.jpg
@@ -81,8 +81,8 @@ PRODUCT|딸기 주스|4000|image/cafe5/딸기 주스.jpg
 PRODUCT|바나나 주스|4000|image/cafe5/바나나 주스.jpg
 PRODUCT|딸기바나나 주스|4100|image/cafe5/딸기바나나 주스.jpg
 PRODUCT|Hot 스팀우유|4000|image/cafe5/Hot 스팀우유.jpg
-PRODUCT|샷추가|500|
-PRODUCT|버블추가|500|
+PRODUCT|샷추가|500|image/cafe5/샷추가.jpg
+PRODUCT|버블추가|500|image/cafe5/버블추가.jpg
 
 
 CATEGORY|티
@@ -123,7 +123,7 @@ PRODUCT|딸기 스파클링|3900|image/cafe5/딸기 스파크�
 PRODUCT|청포도 스파클링|3900|image/cafe5/청포도 스파클링.jpg
 PRODUCT|오미자 스파클링|3900|image/cafe5/오미자 스파클링.jpg
 PRODUCT|체리콕|3900|image/cafe5/체리콕.jpg
-PRODUCT|샷추가|500|
+PRODUCT|샷추가|500|image/cafe5/샷추가.jpg
 
 CATEGORY|프라페
 PRODUCT|카카오 프라페|3900|image/cafe5/카카오 프라페.jpg
@@ -135,15 +135,15 @@ PRODUCT|쿠키앤크림 프라페|4400|image/cafe5/쿠키앤크�
 PRODUCT|요거트 프라페|4000|image/cafe5/요거트 프라페.jpg
 PRODUCT|딸기 요거트 프라페|4200|image/cafe5/딸기 요거트 프라페.jpg
 PRODUCT|초코바나나 프라페|4200|image/cafe5/초코바나나 프라페.jpg
-PRODUCT|샷추가|500|
-PRODUCT|버블 추가|500|
-PRODUCT|휘핑크림 추가|500|
+PRODUCT|샷추가|500|image/cafe5/샷추가.jpg
+PRODUCT|버블 추가|500|image/cafe5/버블추가.jpg
+PRODUCT|휘핑크림 추가|500|image/cafe5/휘핑크림 추가.jpg
 
 CATEGORY|추가 메뉴
-PRODUCT|샷추가|500|
-PRODUCT|버블 추가|500|
-PRODUCT|휘핑크림 추가|500|
-PRODUCT|초코 드리즐 추가|500|
-PRODUCT|카라멜 드리즐 추가|500|
-PRODUCT|헤이즐넛 시럽 추가|500|
-PRODUCT|음료에 아이스크림 추가|1500|
+PRODUCT|샷추가|500|image/cafe5/샷추가.jpg
+PRODUCT|버블 추가|500|image/cafe5/버블추가.jpg
+PRODUCT|휘핑크림 추가|500|image/cafe5/샷추가.jpg
+PRODUCT|초코 드리즐 추가|500|image/cafe5/휘핑크림 추가.jpg
+PRODUCT|카라멜 드리즐 추가|500|image/cafe5/카라멜 드리즐 추가.jpg
+PRODUCT|헤이즐넛 시럽 추가|500|image/cafe5/헤이즐넛 시럽 추가.jpg
+PRODUCT|음료에 아이스크림 추가|1500|image/cafe5/음료에 아이스크림 추가.jpg

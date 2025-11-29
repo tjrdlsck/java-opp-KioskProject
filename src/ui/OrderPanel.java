@@ -1,16 +1,12 @@
 package ui;
 
-//✅ [신규 추가] mainpage의 실제 데이터 모델을 가져옵니다.
 import mainpage.Cart;
 import mainpage.CartItem;
 import mainpage.Product;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class OrderPanel extends JPanel {
-    // ⛔️ [변경] private final OrderManager manager = new OrderManager();
-    // ✅ [수정] mainpage의 Cart 객체로 교체
     private final Cart cart = new Cart();
     private final JPanel orderListPanel;
     private final JScrollPane scrollPane;
@@ -28,7 +24,6 @@ public class OrderPanel extends JPanel {
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        // ✅ 스크롤 영역이 내부에서 확실히 작동하도록 설정
         orderListPanel.setPreferredSize(null);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.getViewport().setBackground(Color.WHITE);
@@ -37,34 +32,21 @@ public class OrderPanel extends JPanel {
 
     }
 
-    // ⛔️ [변경] public void addOrder(MenuItem item)
-    // ✅ [수정] Product 객체를 받도록 시그니처 변경
     public void addOrder(Product product) {
-        // ⛔️ [변경] manager.add(item.name);
-        // ✅ [수정]
         cart.addProduct(product);
         refreshOrderList();
     }
 
     public void clearOrders() {
-        // ⛔️ [변경] manager.clear();
-        // ✅ [수정]
         cart.clear();
         refreshOrderList();
     }
 
     public boolean isEmpty() {
-        // ⛔️ [변경] return manager.isEmpty();
-        // ✅ [수정]
         return cart.isEmpty();
     }
 
-    // ⛔️ [삭제] public Map<String, Integer> getOrders() { ... }
-
-    /**
-     * [신규] MenuScreen(주문하기 버튼)에서 총액을 계산할 수 있도록
-     * 관리 중인 Cart 객체 자체를 반환합니다.
-     */
+    // MenuScreen(주문하기 버튼)에서 총액을 계산할 수 있도록 관리 중인 Cart 객체 자체를 반환합니다.
     public Cart getCart() {
         return this.cart;
     }
@@ -79,15 +61,12 @@ public class OrderPanel extends JPanel {
     private void refreshOrderList() {
     	orderListPanel.removeAll();
 
-    	// ⛔️ [변경] for (Map.Entry<String, Integer> entry : manager.getAll().entrySet()) {
-        // ✅ [수정] cart.getItems() (List<CartItem>)를 순회합니다.
     	for (CartItem item : cart.getItems()) {
-    		// ✅ [신규 추가] CartItem에서 Product, 이름, 수량을 가져옵니다.
-            final Product product = item.getProduct(); // 람다 내부에서 사용하려면 final
+    		// CartItem에서 Product, 이름, 수량을 가져옵니다.
+            final Product product = item.getProduct();
             String name = product.getName();
             int count = item.getQuantity();
-
-            // ✅ 한 줄 패널: 반응형 구성 (GridBagLayout 사용)
+            
             JPanel row = new JPanel(new GridBagLayout());
             row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
             row.setBackground(Color.WHITE);
@@ -97,7 +76,7 @@ public class OrderPanel extends JPanel {
             gbc.insets = new Insets(0, 5, 0, 5);
             gbc.gridy = 0;
 
-            // 🔹 메뉴명 (가변 폭)
+            // 메뉴명
             JLabel nameLabel = new JLabel(name);
             nameLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
             nameLabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -106,7 +85,7 @@ public class OrderPanel extends JPanel {
             gbc.fill = GridBagConstraints.HORIZONTAL;
             row.add(nameLabel, gbc);
 
-            // 🔹 버튼 영역 (고정 폭)
+            // 버튼 영역
             JPanel right = new JPanel(new GridBagLayout());
             right.setOpaque(false);
 
@@ -122,11 +101,11 @@ public class OrderPanel extends JPanel {
             up.setMargin(new Insets(0, 0, 0, 0));
             down.setMargin(new Insets(0, 0, 0, 0));
             del.setMargin(new Insets(0, 0, 0, 0));
-            // ✅ [수정] cart.addProduct(product) (수량 증가)
+            // 수량 증가
             up.addActionListener(e -> { cart.addProduct(product); refreshOrderList(); });
-            // ✅ [수정] cart.decrementProduct(product) (수량 감소)
+            // 수량 감소
             down.addActionListener(e -> { cart.decrementProduct(product); refreshOrderList(); });
-            // ✅ [수정] cart.removeProduct(product) (완전 삭제)
+            // 완전 삭제
             del.addActionListener(e -> { cart.removeProduct(product); refreshOrderList(); });
 
             rb.gridx = 0; right.add(up, rb);
@@ -134,7 +113,7 @@ public class OrderPanel extends JPanel {
             rb.gridx = 2; right.add(down, rb);
             rb.gridx = 3; right.add(del, rb);
 
-            // 🔹 오른쪽 고정, 왼쪽 가변
+            // 오른쪽 고정, 왼쪽 가변
             gbc.gridx = 1;
             gbc.weightx = 0;
             gbc.fill = GridBagConstraints.NONE;
@@ -147,7 +126,7 @@ public class OrderPanel extends JPanel {
                 scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum())
         );
 
-        orderListPanel.setPreferredSize(null); // ✅ 패널 높이를 스크롤이 계산하도록 자동화
+        orderListPanel.setPreferredSize(null);
         orderListPanel.revalidate();
         orderListPanel.repaint();
     }

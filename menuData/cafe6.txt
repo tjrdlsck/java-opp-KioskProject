@@ -1,4 +1,4 @@
-STORE|7강의동|BLUEPOT
+STORE|7강의동|카페 BLUEPOT|image/cafe6/cafe6.jpg
 
 CATEGORY|커피
 PRODUCT|멜팅버터스카치|3800|image/cafe6/멜팅버터스카치.jpg
@@ -96,7 +96,7 @@ PRODUCT|크크! 체더도그|3000|image/cafe6/크크! 체더도�
 CATEGORY|베이커리&간편식
 PRODUCT|베이글(어니언)|2200|image/cafe6/베이글(어니언).jpg
 PRODUCT|베이글(블루베리)|2200|image/cafe6/베이글(블루베리).jpg
-PRODUCT|크림치즈(플레인)|1000|
+PRODUCT|크림치즈(플레인)|1000|image/cafe6/크림치즈(플레인).jpg
 
 CATEGORY|MD상품
 PRODUCT|썬데이즈 스낵 어니언|2700|image/cafe6/썬데이즈 스낵 어니언.jpg
